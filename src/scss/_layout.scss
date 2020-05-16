@@ -1,0 +1,28 @@
+.container {
+  max-width: 120rem;
+  margin: 2rem auto;
+  background-image: linear-gradient(to right bottom, white, rgb(221, 218, 218));
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  min-height: 80rem;
+}
+
+.header {
+}
+
+.sub-header {
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.product-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  background-color: white;
+}
