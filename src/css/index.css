@@ -34,15 +34,27 @@ body {
   flex-direction: row;
   background-color: white; }
 
+.finalCheck {
+  margin: auto 2rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 35rem; }
+
 .logo-header__container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 2rem;
-  width: 100%; }
+  padding: 1rem;
+  flex: 0 0 50%;
+  border-bottom: 1px solid #0000001f; }
 
 .logo {
-  width: 50%; }
+  width: 100%; }
+  .logo__link {
+    width: 15%; }
 
 .nav {
   display: flex;
@@ -174,9 +186,27 @@ body {
 .shopping-cart {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end; }
+  align-items: flex-end;
+  flex: 0 0 50%;
+  position: relative; }
   .shopping-cart__img {
-    width: 7%; }
+    width: 65%; }
+  .shopping-cart__circle {
+    background-color: #ff8686;
+    border-radius: 10rem;
+    font-size: 1.3rem;
+    top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    left: 53rem;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    padding: 1rem;
+    font-weight: 400; }
 
 .active {
   font-weight: 700;
@@ -230,6 +260,8 @@ body {
     height: auto;
     padding: 2rem 0.5rem;
     margin: 2rem;
+    text-decoration: none;
+    text-align: center;
     flex: 0 0 33.3333333%; }
   .product-list__img {
     width: 100%;
@@ -239,13 +271,34 @@ body {
     font-size: 1.3rem; }
   .product-list__title {
     text-transform: capitalize;
-    padding: 1rem; }
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: black; }
+
+.product__title {
+  margin-bottom: 2rem;
+  font-weight: 500; }
+
+.product__price {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: green; }
+
+.product__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 30%; }
 
 .product__sizeBox {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
   border: 1px solid black;
-  margin-right: .5rem; }
+  margin-right: 0.5rem; }
 
 .product__container {
   padding: 2rem;
@@ -285,79 +338,79 @@ body {
     background-color: red;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--black {
     background-color: black;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--Gold {
     background-color: gold;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--navy {
     background-color: navy;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--Lilac {
     background-color: pink;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--Athletic-Heather {
-    background-color: #AFAFAF;
+    background-color: #afafaf;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--Maroon {
     background-color: Maroon;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--Black-Heather {
     background-color: #313131;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--white {
     background-color: #d8d8d8;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--Military-Green {
-    background-color: #6B6952;
+    background-color: #6b6952;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
   .product__color--crop {
-    background-color: #E1AC92;
+    background-color: #e1ac92;
     height: 2rem;
     width: 2.2rem;
-    margin-right: .5rem;
-    border-top: .5px solid black;
-    border-bottom: .5px solid black; }
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
 
 .u-no-display {
   display: none !important; }
@@ -378,4 +431,209 @@ body {
     color: black; }
   .addCArt__logo {
     width: 10%;
-    margin-right: .5rem; }
+    margin-right: 0.5rem; }
+
+.cart {
+  padding: 4rem; }
+  .cart__detail {
+    padding: 2rem; }
+  .cart__header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    width: 80%;
+    text-align: center; }
+  .cart__section {
+    padding: 2rem; }
+    .cart__section:not(:last-child) {
+      margin-bottom: 4rem;
+      padding: 4rem;
+      border: 5px solid black;
+      background-color: rgba(204, 204, 204, 0.63); }
+  .cart__content {
+    font-size: 1.5rem;
+    font-weight: 400; }
+
+.u_flex {
+  justify-content: space-between;
+  display: flex;
+  width: 10rem;
+  align-items: center; }
+
+.form {
+  padding: 1rem;
+  flex: 1 1;
+  border-radius: 1rem;
+  border: 1px solid #0000000a;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 40rem;
+  background-color: rgba(87, 87, 104, 0); }
+  .form__input {
+    border: none;
+    padding: 1rem;
+    flex: 1; }
+    .form__input:focus {
+      outline: none;
+      border-bottom: 1px solid #86e4a5; }
+  .form__label {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: #e7b5b5; }
+  .form__title {
+    text-transform: uppercase;
+    width: 10rem; }
+
+.u-point {
+  cursor: pointer; }
+
+.recipient {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  margin: auto 2rem; }
+  .recipient__img {
+    border-radius: 7rem;
+    background: #e5919194;
+    padding: 4rem; }
+  .recipient__content {
+    flex: 0 0 55%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 0.8rem;
+    font-weight: 400;
+    flex-direction: row; }
+  .recipient__title {
+    font-size: 0.8rem;
+    font-weight: 400; }
+
+.finalCheck {
+  display: flex;
+  flex: 0 0 55%;
+  align-items: flex-start;
+  justify-content: center; }
+  .finalCheck__header {
+    display: flex;
+    border-bottom: 1px solid rgba(226, 185, 185, 0.432);
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem; }
+    .finalCheck__header--main {
+      font-weight: 600;
+      font-size: 2rem; }
+    .finalCheck__header--sub {
+      font-weight: 400;
+      font-size: 2.5rem;
+      letter-spacing: 0.3rem; }
+  .finalCheck__contact {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem 6rem; }
+    .finalCheck__contact--title {
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2rem; }
+    .finalCheck__contact--info {
+      width: 75%;
+      padding: 0.5rem 2rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      text-align: start; }
+    .finalCheck__contact--key {
+      flex: 0 0 50%;
+      text-transform: capitalize; }
+    .finalCheck__contact--value {
+      flex: 1;
+      text-transform: capitalize; }
+
+.final {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4rem; }
+
+.total {
+  flex: 1 1;
+  background-color: #fff9f7;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  justify-content: space-between;
+  margin: 2rem;
+  align-items: flex-start;
+  flex-direction: column;
+  display: flex;
+  height: auto; }
+  .total__detail {
+    display: flex;
+    border-bottom: 1px solid rgba(226, 185, 185, 0.432);
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 2rem; }
+  .total__img {
+    background-color: #bebebe;
+    width: 10%;
+    border-radius: 5rem; }
+  .total__title {
+    margin-right: 1rem; }
+    .total__title--2 {
+      margin-right: 1rem;
+      font-size: 1.2rem; }
+    .total__title--sub {
+      color: #b0aaa8;
+      margin-left: 0.5rem; }
+
+.shipTotal {
+  text-transform: capitalize;
+  font-size: 1.1rem; }
+
+.ship-box {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(226, 185, 185, 0.432); }
+
+.total-fs {
+  font-size: 1.8rem; }
+
+.u-margin-bottom {
+  margin-bottom: 1rem; }
+
+.form-credit {
+  padding: 2rem;
+  margin: 1rem;
+  max-width: 40rem;
+  background-color: #FFF9F7; }
+  .form-credit__input-container {
+    display: flex; }
+  .form-credit__buyer {
+    padding: 1rem; }
+  .form-credit__input {
+    margin: .5rem;
+    padding: 1rem;
+    border: none;
+    width: 100%; }
+
+.btn {
+  padding: .5rem 1rem;
+  text-align: center;
+  color: #ebebeb;
+  font-weight: 600;
+  margin: 1rem;
+  background: black;
+  border: none;
+  cursor: pointer;
+  width: 20rem;
+  font-size: 1.5rem; }
+  .btn:hover {
+    color: black;
+    background: #ebebeb; }

@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {API} from "../utils/index"
+import { API } from "../utils/index";
 const Women = (props) => {
   const Women = () =>
     props.products.filter((data) => data.name.match("Women") && data);
@@ -40,22 +40,19 @@ const Women = (props) => {
 
   const fetchProducts = () => {
     API()
-      .get(
-        `/products/${Womens().map((item,i) => item.id)}`
-      )
+      .get(`/products/${Womens().map((item, i) => item.id)}`)
       .then((data) => setProducts(data.data.result.sync_variants))
       .catch((err) => console.log(err));
   };
 
   useEffect(() => fetchProducts(), []);
 
-const idLoop = (data)=>{
-  let i = 0
-  let o = {}
+  const idLoop = (data) => {
+    let i = 0;
+    let o = {};
+  };
 
-}
-
-console.log(idLoop(Womens().map((item,i) => item.id)),"price")
+  console.log(idLoop(Womens().map((item, i) => item.id)), "price");
   return (
     <div className="product-container">
       <div className="cloths-menu">
