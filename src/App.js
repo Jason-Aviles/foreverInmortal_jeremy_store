@@ -21,7 +21,7 @@ function App() {
 
   const [products, setProducts] = useState([]);
   const [price, setPrice] = useState('');
-  const [cart, setCart] = useState(oldCart);
+  const [cart, setCart] = useState([]);
 
 const [itemRecipient, setItemRecipient] = useState([]);
 
@@ -91,7 +91,7 @@ const [itemRecipient, setItemRecipient] = useState([]);
    
    }
    
-   useEffect(()=>updateCart())
+   useEffect(()=>updateCart(),[])
 
 
 
@@ -116,7 +116,7 @@ const [itemRecipient, setItemRecipient] = useState([]);
           </Link>
           <div className="shopping-cart">
           <Link className="logo__link" to="/cart">
-            <img className="shopping-cart__img" src={shoppingcart} alt="cart" /><h4 className="shopping-cart__circle" >l</h4></Link>
+            <img className="shopping-cart__img" src={shoppingcart} alt="cart" /><h4 className="shopping-cart__circle" >{!cart.length ? 0 : cart.length}</h4></Link>
           </div>
         </div>
 
