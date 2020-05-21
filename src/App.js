@@ -104,7 +104,7 @@ const [itemRecipient, setItemRecipient] = useState([]);
   };
 
   useEffect(() => fetchProducts(), []);
-  console.log(price ,"llllll")
+ 
   return (
     <div className="container">
       <header className="header">
