@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, NavLink, Link } from "react-router-dom";
-import data from "./data";
+import Kids from "./components/Kids/Kids"
 import Products from "./components/Products";
 import { UserContext, CartContext } from "./components/context/index";
 import logo from "./img/main-logo.png";
@@ -88,7 +88,7 @@ const [itemRecipient, setItemRecipient] = useState([]);
     return  localStorage.setItem('shoppingCart', JSON.stringify(cart))
     }
    
-   
+   else{return}
    }
    
    useEffect(()=>updateCart(),[])
@@ -96,8 +96,8 @@ const [itemRecipient, setItemRecipient] = useState([]);
 
 
  
-  const fetchProducts = () => {
-    API()
+  const fetchProducts = async () => {
+  return await  API()
       .get("/products")
       .then((data) => setProducts(data.data.result))
       .catch((err) => console.log(err));
@@ -173,7 +173,24 @@ const [itemRecipient, setItemRecipient] = useState([]);
 
 <Route
         exact
+        path="/Kids"
+        render={(props) => <Kids {...props} price={price} products={products} />}
+      />
+
+<Route
+        exact
         path="/Women/:id"
+        render={(props) => <Products {...props} cart={cart} setCart={setCart}  setPrice={setPrice} products={products} />}
+      />
+      <Route
+        exact
+        path="/Men/:id"
+        render={(props) => <Products {...props} cart={cart} setCart={setCart}  setPrice={setPrice} products={products} />}
+      />
+
+<Route
+        exact
+        path="/Kids/:id"
         render={(props) => <Products {...props} cart={cart} setCart={setCart}  setPrice={setPrice} products={products} />}
       />
 

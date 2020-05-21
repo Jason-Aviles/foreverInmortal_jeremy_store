@@ -96,7 +96,8 @@ body {
       border: 1px solid blue; }
 
 .banner {
-  display: block; }
+  display: block;
+  position: relative; }
   .banner__img {
     width: 100%; }
 
@@ -105,26 +106,25 @@ body {
 
 .btn-shopNow {
   position: absolute;
-  top: 54rem;
-  left: 5%;
-  color: white;
+  top: 85%;
+  left: 15%;
+  color: #fff;
   font-weight: 500;
   transform: translate(-50%, -50%);
   text-decoration: none;
-  padding: 0.5rem;
+  padding: .5rem;
   font-size: 4rem;
   background-color: transparent;
-  border: 0.8rem solid white;
+  border: .8rem solid #fff;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
   transition: all 1s ease-out;
-  text-transform: uppercase;
-  transform: translateY(0); }
+  text-transform: uppercase; }
   .btn-shopNow:hover {
     box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.308);
     border: 0.8rem solid #e42e2e;
     color: #e42e2e;
-    transform: translateY(2px); }
+    transform: translateY(2px) translateX(0); }
 
 .collection {
   list-style: none;
@@ -406,6 +406,41 @@ body {
     border-bottom: 0.5px solid black; }
   .product__color--crop {
     background-color: #e1ac92;
+    height: 2rem;
+    width: 2.2rem;
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
+  .product__color--babyBlue {
+    background-color: powderblue;
+    height: 2rem;
+    width: 2.2rem;
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
+  .product__color--babyPink {
+    background-color: #e5c1f0;
+    height: 2rem;
+    width: 2.2rem;
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
+  .product__color--heatherGray {
+    background-color: #adaaaa;
+    height: 2rem;
+    width: 2.2rem;
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
+  .product__color--jetBlack {
+    background-color: black;
+    height: 2rem;
+    width: 2.2rem;
+    margin-right: 0.5rem;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black; }
+  .product__color--royalBlue {
+    background-color: royalblue;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;

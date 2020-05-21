@@ -12,11 +12,23 @@ const Products = (props) => {
   const [shirtSize, setShirtSize] = useState("S");
 
 
-  const fetchProducts = () => {
-    API()
+  const fetchProducts = async () => {
+  //  const res = await  API()
+  //     .get(`/products/${props.match.params.id}`)
+  //     .then((data) => setProducts(data.data.result.sync_variants))
+  //     .catch((err) => console.log(err));
+     const res = await  API()
       .get(`/products/${props.match.params.id}`)
-      .then((data) => setProducts(data.data.result.sync_variants))
-      .catch((err) => console.log(err));
+      
+      
+      try {
+ setProducts(res.data.result.sync_variants)
+
+
+      } catch (err) {
+        console.log(err)
+      }
+      
   };
 
 const updateCart = cart=>{ 
@@ -35,8 +47,8 @@ const updateCart = cart=>{
 
 }
 
-useEffect(()=>updateCart(props.cart))
-  useEffect(() => fetchProducts(), []);
+useEffect(()=>{updateCart(props.cart)})
+  useEffect(() => {  fetchProducts()}, []);
   // console.log(products.map(items => items.name),"jjj")
   // console.log(products.map(item =>  item.files.map((info ,i)=> info)[2].thumbnail_url).map((y,i) => y),'tt')
 
@@ -111,7 +123,7 @@ console.log(JSON.parse(localStorage.getItem('shoppingCart')),"carttt")
         .filter(
           (items) =>
             items.name.match(`${shirtColor} / ${shirtSize}`) ||
-            (items.name.match(`${shirtColor} - ${shirtSize}`) && items)
+            (items.name.match(`${shirtColor} - ${shirtSize}`)    && items)
         )
         .map((info, i) => (
           <div className="product__container" key={i}>
@@ -211,6 +223,64 @@ console.log(JSON.parse(localStorage.getItem('shoppingCart')),"carttt")
                         : "u-no-display"
                     }
                   ></div>
+
+
+<div
+                    onClick={() => setShirtColor("Jet Black")}
+                    className={
+                      checkColor("Jet Black")
+                        ? "product__color--jetBlack"
+                        : "u-no-display"
+                    }
+                  ></div>
+
+
+
+<div
+                    onClick={() => setShirtColor("Royal Blue")}
+                    className={
+                      checkColor("Royal Blue")
+                        ? "product__color--royalBlue"
+                        : "u-no-display"
+                    }
+                  ></div>
+
+
+
+
+<div
+                    onClick={() => setShirtColor("Baby Pink")}
+                    className={
+                      checkColor("Baby Pink")
+                        ? "product__color--babyPink"
+                        : "u-no-display"
+                    }
+                  ></div>
+
+<div
+                    onClick={() => setShirtColor("Baby Blue")}
+                    className={
+                      checkColor("Baby Blue")
+                        ? "product__color--babyBlue"
+                        : "u-no-display"
+                    }
+                  ></div>
+
+<div
+                    onClick={() => setShirtColor("Heather Grey")}
+                    className={
+                      checkColor("Heather Grey")
+                        ? "product__color--heatherGrey"
+                        : "u-no-display"
+                    }
+                  ></div>
+
+
+
+
+
+
+
                 </div>
               </div>
 

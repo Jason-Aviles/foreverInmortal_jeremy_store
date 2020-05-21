@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { API } from "../utils/index";
-const Women = (props) => {
-  const Women = () =>
-    props.products.filter((data) => data.name.match("Women") && data);
-  const Kids = () =>
-    props.products.filter((data) => data.name.match("Kids") && data);
+const Kids = (props) => {
+  
   const Acc = () =>
     props.products.filter((data) =>
       !data.name.match("Kids") &&
-      !data.name.match("Women") &&
+      !data.name.match("Kids") &&
       !data.name.match("Men")
         ? data
         : ""
@@ -17,30 +14,30 @@ const Women = (props) => {
 
   const [cart, setCart] = useState([]);
 
-  const [womenFilter, setFilter] = useState("");
+  const [KidsFilter, setFilter] = useState("");
 
-  const Womens = () =>
+  const Kidss = () =>
     props.products.filter((data) => {
-      if (womenFilter === "") {
-        return data.name.match("Women") && data;
+      if (KidsFilter === "") {
+        return data.name.match("Kids") && data;
       }
-      if (womenFilter === "Hoodie") {
-        return data.name.match("Hoodie") && data.name.match("Women") && data;
+      if (KidsFilter === "Hoodie") {
+        return data.name.match("Hoodie") && data.name.match("Kids") && data;
       }
-      if (womenFilter === "T-Shirt") {
-        return data.name.match("T-Shirt") && data.name.match("Women") && data;
+      if (KidsFilter === "T-Shirt") {
+        return data.name.match("T-Shirt") && data.name.match("Kids") && data;
       }
-      if (womenFilter === "Long Sleeve") {
+      if (KidsFilter === "Long Sleeve") {
         return (
-          data.name.match("Long Sleeve") && data.name.match("Women") && data
+          data.name.match("Long Sleeve") && data.name.match("Kids") && data
         );
       }
-      if (womenFilter === "Joggers") {
-        return data.name.match("Joggers") && data.name.match("Women") && data;
+      if (KidsFilter === "Joggers") {
+        return data.name.match("Joggers") && data.name.match("Kids") && data;
       }
     });
 
-  console.log(Womens(), "jj");
+ 
 
   const [menuFilter, setMenuFilter] = useState("");
 
@@ -48,7 +45,7 @@ const Women = (props) => {
 
   const fetchProducts = async () => {
     return await API()
-      .get(`/products/${Womens().map((item, i) => item.id)}`)
+      .get(`/products/${Kidss().map((item, i) => item.id)}`)
       .then((data) => setProducts(data.data.result.sync_variants))
       .catch((err) => console.log(err));
   };
@@ -62,7 +59,7 @@ const Women = (props) => {
     let o = {};
   };
 
-  console.log(idLoop(Womens().map((item, i) => item.id)), "price");
+  console.log(idLoop(Kidss().map((item, i) => item.id)), "price");
   return (
     <div className="product-container">
       <div className="cloths-menu">
@@ -70,7 +67,7 @@ const Women = (props) => {
           <li className="cloths-menu__item">shop</li>
           <li
             className={`cloths-menu__item    cloths-menu__item${
-              womenFilter === "Tee" ? "--1" : ""
+              KidsFilter === "Tee" ? "--1" : ""
             }`}
             onClick={() => setFilter("T-Shirt")}
           >
@@ -87,7 +84,7 @@ const Women = (props) => {
           <li
             onClick={() => setFilter("Hoodie")}
             className={`cloths-menu__item    cloths-menu__item${
-              womenFilter === "Hoodie" ? "--1" : ""
+              KidsFilter === "Hoodie" ? "--1" : ""
             }`}
           >
             hoodie
@@ -101,8 +98,8 @@ const Women = (props) => {
         </ul>
       </div>
       <div className="product-list">
-        {Womens().map((item, i) => (
-          <Link to={`/Women/${item.id}`} key={i} className="product-list__box">
+        {Kidss().map((item, i) => (
+          <Link to={`/Kids/${item.id}`} key={i} className="product-list__box">
             {console.log(item, "item")}
             <img
               src={item.thumbnail_url}
@@ -118,4 +115,4 @@ const Women = (props) => {
   );
 };
 
-export default Women;
+export default Kids;

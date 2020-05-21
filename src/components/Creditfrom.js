@@ -1,4 +1,5 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
+import axios from "axios"
 import {
   Elements,
   CardElement,
@@ -6,12 +7,15 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 const Creditfrom = (props) => {
+const stripeMoney =props.finalPrice() * 100
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
+  const [amount, setAmount] = useState();
   const [city, setCity] = useState("");
+
+useEffect(()=>{return setAmount( props.finalPrice() && (props.finalPrice() * 100))})
 
 
   const CARD_OPTIONS = {
@@ -34,7 +38,7 @@ const Creditfrom = (props) => {
     },
   };
 
-
+const [status ,setStatus] = useState()
 
   const stripe = useStripe();
   const elements = useElements();
@@ -61,9 +65,23 @@ const Creditfrom = (props) => {
     });
 
     if (error) {
-      console.log("[error]", error);
+      console.log(error.message,"error")
+      return setStatus(error.message)
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+     const {id} = paymentMethod
+     console.log(id)
+try {
+  const {data} = await axios.post("http://localhost:7000/api/charge",{id, amount})
+props.success()
+localStorage.removeItem("checkCart")
+localStorage.removeItem("shoppingCart")
+localStorage.removeItem("finalOrder")
+} catch (error) {
+  console.log(error.message,"error")
+  return setStatus(error.message)
+}
+
+
     }
   };
 
@@ -71,7 +89,7 @@ const Creditfrom = (props) => {
     <form className="form-credit" onSubmit={handleSubmit}><h1 className="finalCheck__header--sub">Enter Credit Card</h1>
     <div className="form-credit__buyer">
     <div className="form-credit__input-container">
-    
+    <h1>{ Number(amount)}</h1>
      <input className="form-credit__input"
      placeholder="Name"
           type="text"
@@ -100,9 +118,10 @@ const Creditfrom = (props) => {
           onChange={e => setEmail(e.target.value)}
         /></div></div>
       <CardElement style={{width:"40%"}}  options={CARD_OPTIONS} />
-      <button className="btn" type="submit" disabled={!stripe}>
+      <button disabled={props.charge} className="btn" type="submit" disabled={!stripe}>
         Confirm order
       </button>
+      {status}
     </form>
   );
 };

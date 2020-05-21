@@ -3,28 +3,27 @@ import { Codes } from "./utils/countryCodes";
 import { Link } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import Creditform from "./Creditfrom";
-import {
-  Elements
-
-} from "@stripe/react-stripe-js";
-
-
+import { Elements } from "@stripe/react-stripe-js";
 
 const Finalcheck = () => {
-const stripePromise = loadStripe("pk_test_HgeKWoelTLwO0I4wPrMdNJTk00QoHYOnOG");
+  const stripePromise = loadStripe(
+    "pk_test_HgeKWoelTLwO0I4wPrMdNJTk00QoHYOnOG"
+  );
 
   const [shipping, setShipping] = useState([]);
   const [tax, setTax] = useState([]);
 
-  const fetchShipping = (product) => {
-    Codes()
+  const [charge, setCharge] = useState(false);
+
+  const fetchShipping = async (product) => {
+  return await  Codes()
       .post("/shipping/rates", product)
       .then((data) => setShipping(data.data.result))
       .catch((err) => console.log(err));
   };
 
-  const fetchTaxes = (product) => {
-    Codes()
+  const fetchTaxes = async (product) => {
+  return await  Codes()
       .post("/tax/rates", product)
       .then((data) => setTax(data.data.result))
       .catch((err) => console.log(err));
@@ -32,26 +31,34 @@ const stripePromise = loadStripe("pk_test_HgeKWoelTLwO0I4wPrMdNJTk00QoHYOnOG");
 
   let finalOrder = JSON.parse(localStorage.getItem("finalOrder"));
 
-  useEffect(() => fetchShipping(finalOrder), []);
-  useEffect(() => fetchTaxes(finalOrder), []);
+  useEffect(() =>{ fetchShipping(finalOrder)}, []);
+  useEffect(() => {fetchTaxes(finalOrder)}, []);
 
   const totalPrice = () => {
     let i = 0;
     let price = 0;
-    while (i < finalOrder.items.length) {
+    while (i < finalOrder.items.length ) {
+if(finalOrder.items[i].total)
       price += finalOrder.items[i].total;
       i++;
     }
     return price;
   };
-  console.log(totalPrice(), "kkk");
 
   let fullTax = Math.round(tax.rate * totalPrice());
   let fullshipping = shipping.map((ship) => ship.rate);
-  let finalPrice =
-    Number(fullTax) + Number(fullshipping) + Number(totalPrice());
+  let finalPrice = () => {
+    if (fullTax && fullshipping && totalPrice  ) {
+      return Number(fullTax) + Number(fullshipping) + Number(totalPrice());
+    } return 0
+  };
+  
+  const [status, setStatus] = useState("ready");
+if(status === "success"){
+  return <div>congrats on your order</div>
+}
 
-  console.log(finalPrice, "finalPrice");
+
   return !finalOrder.recipient.name || !finalPrice || finalPrice === 0 ? (
     <h1>
       Please go back to the previous page and enter your shipping information{" "}
@@ -120,12 +127,15 @@ const stripePromise = loadStripe("pk_test_HgeKWoelTLwO0I4wPrMdNJTk00QoHYOnOG");
             </div>
           </div>
           <div className="finalcredit">
-        <Elements stripe={stripePromise}>
-          <Creditform
-
-          />
-        </Elements>
-      </div>
+            <Elements stripe={stripePromise}>
+              <Creditform
+                finalPrice={finalPrice}
+                charge={charge}
+                setCharge={setCharge}
+                success={()=> setStatus("success")}
+              />
+            </Elements>
+          </div>
         </div>
 
         <div className="total">
@@ -169,13 +179,11 @@ const stripePromise = loadStripe("pk_test_HgeKWoelTLwO0I4wPrMdNJTk00QoHYOnOG");
 
             <h4 className="total__title total-fs">
               <span className="total__title--sub">Total:</span>
-              {!finalPrice ? "0" : ` $ ${finalPrice}`}
+              {!finalPrice ? "0" : ` $ ${finalPrice()}`}
             </h4>
           </div>
         </div>
       </div>
-
-     
     </div>
   );
 };

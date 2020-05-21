@@ -62,6 +62,7 @@
 
 .banner {
   display: block;
+  position: relative;
   &__img {
     width: 100%;
   }
@@ -73,26 +74,27 @@
 
 .btn-shopNow {
   position: absolute;
-  top: 54rem;
-  left: 5%;
-  color: white;
+  top: 85%;
+  left: 15%;
+  color: #fff;
   font-weight: 500;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   text-decoration: none;
-  padding: 0.5rem;
+  padding: .5rem;
   font-size: 4rem;
   background-color: transparent;
-  border: 0.8rem solid white;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  border: .8rem solid #fff;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.3);
   transition: all 1s ease-out;
   text-transform: uppercase;
-  transform: translateY(0);
+ 
+
   &:hover {
     box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.308);
     border: 0.8rem solid rgb(228, 46, 46);
     color: rgb(228, 46, 46);
-    transform: translateY(2px);
+    transform: translateY(2px) translateX(0);
   }
 }
 
@@ -426,6 +428,50 @@
 
     &--crop {
       background-color: #e1ac92;
+      height: 2rem;
+      width: 2.2rem;
+      margin-right: 0.5rem;
+      border-top: 0.5px solid black;
+      border-bottom: 0.5px solid black;
+    }
+
+
+    &--babyBlue {
+      background-color: powderblue;
+      height: 2rem;
+      width: 2.2rem;
+      margin-right: 0.5rem;
+      border-top: 0.5px solid black;
+      border-bottom: 0.5px solid black;
+    }
+
+    &--babyPink {
+      background-color: rgb(229, 193, 240);
+      height: 2rem;
+      width: 2.2rem;
+      margin-right: 0.5rem;
+      border-top: 0.5px solid black;
+      border-bottom: 0.5px solid black;
+    }
+
+    &--heatherGray {
+      background-color: rgb(173, 170, 170);
+      height: 2rem;
+      width: 2.2rem;
+      margin-right: 0.5rem;
+      border-top: 0.5px solid black;
+      border-bottom: 0.5px solid black;
+    }
+    &--jetBlack {
+      background-color: rgb(0, 0, 0);
+      height: 2rem;
+      width: 2.2rem;
+      margin-right: 0.5rem;
+      border-top: 0.5px solid black;
+      border-bottom: 0.5px solid black;
+    }
+    &--royalBlue {
+      background-color: royalblue;
       height: 2rem;
       width: 2.2rem;
       margin-right: 0.5rem;
