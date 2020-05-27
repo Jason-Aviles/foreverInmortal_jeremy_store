@@ -113,6 +113,9 @@ body {
   .banner__img {
     width: 100%;
     height: 95vh; }
+    @media only screen and (max-width: 48em) {
+      .banner__img {
+        height: 45.5rem; } }
 
 .carousel {
   position: relative; }
