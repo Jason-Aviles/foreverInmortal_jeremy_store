@@ -122,7 +122,7 @@ localStorage.clear()}
     <form className="form-credit" onSubmit={handleSubmit}><h1 className="finalCheck__header--sub">Enter Credit Card</h1>
     <div className="form-credit__buyer">
     <div className="form-credit__input-container">
-    <h1>{ Number(amount)}</h1>
+    
      <input className="form-credit__input"
      placeholder="Name"
           type="text"
