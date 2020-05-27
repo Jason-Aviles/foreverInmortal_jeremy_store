@@ -44,10 +44,16 @@ useEffect(()=>{return setAmount( props.finalPrice() && (props.finalPrice() * 100
 
 
   const createOrder = async (product) => {
-    return await  Codes()
+
+
+        try {
+const res =await  Codes()
         .post("/orders", product)
-        .then((data) => console.log(data,"data"))
-        .catch((err) => console.log(err,"error"));
+        
+         console.log(res) 
+        } catch (error) {
+          console.log(error)
+        }
     };
 
 
@@ -89,17 +95,18 @@ const [status ,setStatus] = useState()
       return setStatus(error.message)
     } else {
      const {id} = paymentMethod
-     console.log(id)
+   
 try {
-  
+    console.log(id,"id")
+    console.log(amount,"id")
   createOrder(finalOrderee)
-  const {data} = await axios.post(process.env.REACT_APP_charge,{id, amount})
- 
+  const {data} = await axios.post(process.env.REACT_APP_charge,{id:id, amount:amount})
+ console.log(data,"here")
 props.success()
-localStorage.removeItem("checkCart")
+if(data){localStorage.removeItem("checkCart")
 localStorage.removeItem("shoppingCart")
 localStorage.removeItem("finalOrder")
-localStorage.clear()
+localStorage.clear()}
  
 } catch (error) {
   console.log(error.message,"error")
@@ -144,7 +151,7 @@ localStorage.clear()
           onChange={e => setEmail(e.target.value)}
         /></div></div>
       <CardElement style={{width:"40%"}}  options={CARD_OPTIONS} />
-      <button onClick={ props.setCharge(true)} disabled={props.charge} className="btn" type="submit" >
+      <button onClick={ props.setCharge(true)}  className="btn" type="submit" >
         Confirm order
       </button>
       {status}

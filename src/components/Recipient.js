@@ -73,7 +73,7 @@ class recipient extends Component {
   printfulOBj2 = () => {
     let checkCart = JSON.parse(localStorage.getItem("checkOrder"));
     let recipientofBuyer = {
-      confirm:true,
+      confirm:false,
       recipient: {
         name: this.state.name,
         address1: this.state.address1,

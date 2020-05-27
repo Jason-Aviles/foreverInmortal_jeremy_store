@@ -16,10 +16,17 @@ const Finalcheck = () => {
   const [charge, setCharge] = useState(false);
 
   const fetchShipping = async (product) => {
-  return await  Codes()
+
+
+try {
+  const res =await  Codes()
       .post("/shipping/rates", product)
-      .then((data) => setShipping(data.data.result))
-      .catch((err) => console.log(err));
+setShipping(res.data.result)
+
+} catch (error) {
+  console.log(error)
+}
+
   };
 
   const fetchTaxes = async (product) => {
@@ -49,7 +56,7 @@ if(finalOrder.items[i].total)
   let fullTax = Math.round(tax.rate * totalPrice());
   let fullshipping = shipping.map((ship) => ship.rate);
   let finalPrice = () => {
-    if (fullTax && fullshipping && totalPrice  ) {
+    if (totalPrice()  ) {
       return Math.round( Number(fullTax) + Number(fullshipping) + Number(totalPrice()));
     } return 0
   };
@@ -59,8 +66,8 @@ if(status === "success"){
   return <div>congrats on your order</div>
 }
 
-
-  return !finalOrder || !finalPrice || finalPrice === 0 ? (
+console.log( Math.round( Number(fullTax) + Number(fullshipping) + Number(totalPrice())) ,"o")
+  return !finalOrder || !finalPrice() || finalPrice() === 0 ? (
     <h1>
       Please go back to the previous page and enter your shipping information{" "}
       <Link to="/recipient">Click here</Link>
@@ -162,8 +169,8 @@ if(status === "success"){
             </div>
           ))}
           <div className="shipTotal">
-            {shipping.map((ship) => (
-              <div className="ship-box">
+            {shipping.map((ship,i) => (
+              <div key={i} className="ship-box">
                 <h4 className="total__title u-margin-bottom">
                   <span className="total__title--sub u-margin-bottom">
                     Standard delivery:
