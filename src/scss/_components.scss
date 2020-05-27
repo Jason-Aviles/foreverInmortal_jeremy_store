@@ -30,6 +30,9 @@
     flex: 0 0 50%;
     backface-visibility: hidden;
     transition: color 0.5s ease-out;
+    @media only screen and (max-width:$bp-small){
+      font-size: 1.5rem ;
+    }
   }
   &__item {
     backface-visibility: hidden;
@@ -37,9 +40,12 @@
     text-decoration: none;
     transition: all 1s ease-in;
     font-weight: 600;
+    border-bottom: 5px solid rgba(224, 216, 216, 0);
     &:hover {
       color: rgb(238, 68, 68);
-      border-bottom: 4.5px solid rgb(238, 68, 68);
+      font-weight: 600;
+      font-size: inherit;
+      border-bottom: 5px solid rgb(238, 68, 68);
     }
   }
 }
@@ -65,6 +71,7 @@
   position: relative;
   &__img {
     width: 100%;
+    height: 95vh;
   }
 }
 
@@ -87,14 +94,23 @@
   box-shadow: 0 1rem 3rem rgba(0,0,0,.3);
   transition: all 1s ease-out;
   text-transform: uppercase;
- 
-
+  @media only screen and (max-width:$bp-small){
+    font-size: 2rem ;
+  }
+  @media only screen and (max-width:$bp-tiny){
+    
+   
+  
+    font-size: 1.5rem;
+   
+  }
+  @media only screen and (max-width:$bp-tinniest){ font-size: 1rem;}
   &:hover {
     box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.308);
     border: 0.8rem solid rgb(228, 46, 46);
     color: rgb(228, 46, 46);
-    transform: translateY(2px) translateX(0);
+    transform: translate(-50%,-52%);
   }
 }
 
@@ -108,6 +124,26 @@
 
   width: 100%;
   line-height: 13rem;
+  @media only screen and (max-width:$bp-small){
+    font-size: large;
+    line-height: 10rem;
+    font-weight: 500;
+  }
+  @media only screen and (max-width:$bp-smallest){
+    font-weight: 500;
+    line-height: 6rem;
+  }
+
+  @media only screen and (max-width:$bp-tinniest){
+    
+     line-height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+
+
+  }
+
+
   &__word {
   }
 }
@@ -143,6 +179,18 @@
       left: 11.8%;
       height: 90rem;
       transform: translate(-42%, -34.5%);
+      @media only screen and (max-width:$bp-smallest){
+    
+        height: 56rem;
+      }
+
+      @media only screen and (max-width:$bp-tinniest){
+    
+        height: 40rem;
+    
+   
+   
+     }
     }
   }
 }
@@ -166,6 +214,32 @@
   font-size: 6rem;
   text-transform: uppercase;
   color: #00000008;
+
+
+
+
+
+
+  @media only screen and (max-width:$bp-smallest){
+    
+   
+    width: 44%;
+    top: 50%;
+    left: 50.8%;
+ 
+    transform: translate(-17%, 186%);
+    font-size: 4rem;
+   
+  }
+
+  @media only screen and (max-width:$bp-tiny){
+    
+   
+  
+    font-size: 3rem;
+   
+  }
+
 }
 
 .shopping-cart {
@@ -186,13 +260,40 @@
     justify-content: center;
     align-content: center;
     margin: 0 auto;
-    left: 53rem;
+    left: 90%;
     position: absolute;
     width: 3rem;
     height: 3rem;
     text-align: center;
     padding: 1rem;
     font-weight: 400;
+
+
+
+
+
+    @media only screen and (max-width:$bp-small){
+     
+    
+    background-color: #ff8686;
+      border-radius: 10rem;
+      font-size: .5rem;
+      top: 1rem;
+      display: inline-table;
+      justify-content: center;
+      align-content: center;
+      margin: 0 auto;
+      left: 90%;
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      text-align: center;
+      padding: .5rem;
+      font-weight: 400;
+    }
+
+
+    
   }
 }
 .active {
@@ -209,7 +310,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: 200rem;
+  height: auto;
   &__list {
     text-decoration: none;
     list-style: none;
@@ -219,22 +320,37 @@
     text-transform: capitalize;
     margin-bottom: 0.5rem;
     font-size: 2rem;
-    cursor: pointer;
+    
     width: 65%;
+    @media only screen and (max-width:$bp-smallest){
+    
+   
+      
+      font-size: 1.5rem;
+     
+    }
 
     &--1 {
       color: rgb(151, 48, 48) !important;
       border-bottom: 1px solid rgb(151, 48, 48);
     }
-    &:hover {
-      color: rgb(212, 48, 48);
+    &:not(:first-child):hover {
+      color: rgb(212, 48, 48);cursor: pointer;
     }
+    
     &:first-child {
       margin-bottom: 1rem;
       padding: 1rem;
       font-weight: 500;
       font-size: 3rem;
       text-transform: uppercase;
+      @media only screen and (max-width:$bp-smallest){
+    
+   
+      
+        font-size: 2rem;
+       
+      }
     }
   }
 }
@@ -274,6 +390,7 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: black;
+    
   }
 }
 
@@ -281,6 +398,13 @@
   &__title {
     margin-bottom: 2rem;
     font-weight: 500;
+    @media only screen and (max-width:$bp-smallest){
+    
+   
+      font-weight: 400;
+      font-size: 1rem;
+     
+    }
   }
   &__price {
     font-weight: 600;
@@ -499,6 +623,13 @@
     text-decoration: none;
     font-weight: 500;
     color: black;
+    &:hover{
+    
+      border: 2px solid rgb(211, 151, 22);
+
+      color: rgb(211, 151, 22);
+
+    }
   }
   &__logo {
     width: 10%;

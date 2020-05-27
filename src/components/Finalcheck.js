@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import Creditform from "./Creditfrom";
 import { Elements } from "@stripe/react-stripe-js";
-
+require("dotenv").config();
 const Finalcheck = () => {
   const stripePromise = loadStripe(
-    "pk_test_HgeKWoelTLwO0I4wPrMdNJTk00QoHYOnOG"
+    process.env.REACT_APP_stripeKey
   );
 
   const [shipping, setShipping] = useState([]);
@@ -35,6 +35,7 @@ const Finalcheck = () => {
   useEffect(() => {fetchTaxes(finalOrder)}, []);
 
   const totalPrice = () => {
+    if(!finalOrder.items)return null;
     let i = 0;
     let price = 0;
     while (i < finalOrder.items.length ) {
@@ -49,7 +50,7 @@ if(finalOrder.items[i].total)
   let fullshipping = shipping.map((ship) => ship.rate);
   let finalPrice = () => {
     if (fullTax && fullshipping && totalPrice  ) {
-      return Number(fullTax) + Number(fullshipping) + Number(totalPrice());
+      return Math.round( Number(fullTax) + Number(fullshipping) + Number(totalPrice()));
     } return 0
   };
   
@@ -59,7 +60,7 @@ if(status === "success"){
 }
 
 
-  return !finalOrder.recipient.name || !finalPrice || finalPrice === 0 ? (
+  return !finalOrder || !finalPrice || finalPrice === 0 ? (
     <h1>
       Please go back to the previous page and enter your shipping information{" "}
       <Link to="/recipient">Click here</Link>
@@ -179,7 +180,7 @@ if(status === "success"){
 
             <h4 className="total__title total-fs">
               <span className="total__title--sub">Total:</span>
-              {!finalPrice ? "0" : ` $ ${finalPrice()}`}
+              {!finalPrice ? "0" : ` $ ${finalPrice()}.00`}
             </h4>
           </div>
         </div>

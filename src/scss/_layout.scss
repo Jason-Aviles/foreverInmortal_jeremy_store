@@ -4,6 +4,9 @@
   background-image: linear-gradient(to right bottom, white, rgb(221, 218, 218));
   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
   min-height: 80rem;
+  @media only screen and (max-width:$bp-largest){
+margin: 0;
+  }
 }
 
 .header {

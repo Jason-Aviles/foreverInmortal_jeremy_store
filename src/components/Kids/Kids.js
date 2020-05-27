@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { API } from "../utils/index";
+
 const Kids = (props) => {
   
   const Acc = () =>
@@ -12,7 +12,7 @@ const Kids = (props) => {
         : ""
     );
 
-  const [cart, setCart] = useState([]);
+
 
   const [KidsFilter, setFilter] = useState("");
 
@@ -43,23 +43,8 @@ const Kids = (props) => {
 
   const [products, setProducts] = useState([]);
 
-  const fetchProducts = async () => {
-    return await API()
-      .get(`/products/${Kidss().map((item, i) => item.id)}`)
-      .then((data) => setProducts(data.data.result.sync_variants))
-      .catch((err) => console.log(err));
-  };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const idLoop = (data) => {
-    let i = 0;
-    let o = {};
-  };
-
-  console.log(idLoop(Kidss().map((item, i) => item.id)), "price");
+ 
   return (
     <div className="product-container">
       <div className="cloths-menu">
@@ -100,7 +85,7 @@ const Kids = (props) => {
       <div className="product-list">
         {Kidss().map((item, i) => (
           <Link to={`/Kids/${item.id}`} key={i} className="product-list__box">
-            {console.log(item, "item")}
+            
             <img
               src={item.thumbnail_url}
               alt="bb"

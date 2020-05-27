@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Route, NavLink, Link } from "react-router-dom";
 import Kids from "./components/Kids/Kids"
@@ -7,6 +8,7 @@ import logo from "./img/main-logo.png";
 import Cart from './components/Cart'
 import shoppingcart from "./img/cart.png";
 import Home from "./home";
+
 import "./css/index.css";
 import Men from "./components/Men/Men";
 import Women from "./components/Women/Women";
@@ -14,6 +16,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import Recipient from "./components/Recipient"
 import { API } from "./components/utils/index";
 import Finalcheck from "./components/Finalcheck"
+require('dotenv').config()
 function App() {
 
 
@@ -103,12 +106,14 @@ const [itemRecipient, setItemRecipient] = useState([]);
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => fetchProducts(), []);
- 
+  useEffect(() =>{ fetchProducts()}, []);
+  console.log("{object}",products)
+
   return (
     <div className="container">
       <header className="header">
         <div className="logo-header__container">
+      
         <div className="logo-header-img__container"></div>
           <Link className="logo__link" to="/">
             {" "}

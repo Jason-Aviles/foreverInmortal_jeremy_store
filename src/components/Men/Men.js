@@ -29,29 +29,38 @@ const Men = (props) => {
       }
     });
 
-  console.log(Mens(), "jj");
+
 
   const [menuFilter, setMenuFilter] = useState("");
 
   const [products, setProducts] = useState([]);
 
+
+  // 175525982
+
+
   const fetchProducts = async () => {
-    return await API()
-      .get(`/products/${Mens().map((item, i) => item.id)}`)
-      .then((data) => setProducts(data.data.result.sync_variants))
-      .catch((err) => console.log(err));
-  };
+    //  const res = await  API()
+    //     .get(`/products/${props.match.params.id}`)
+    //     .then((data) => setProducts(data.data.result.sync_variants))
+    //     .catch((err) => console.log(err));
+       
+    // .retail_price
+        
+        try {
+let res = await  API()
+        .get(`/products/175525982`)
+       
+return res.data
+  
+        } catch (err) {
+          console.log(err)
+        }
+  }  
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+// useEffect(()=>{console.log(fetchProducts())},[])
 
-  const idLoop = (data) => {
-    let i = 0;
-    let o = {};
-  };
-
-  console.log(idLoop(Mens().map((item, i) => item.id)), "price");
+console.log("object",props.products)
   return (
     <div className="product-container">
       <div className="cloths-menu">
@@ -59,7 +68,7 @@ const Men = (props) => {
           <li className="cloths-menu__item">shop</li>
           <li
             className={`cloths-menu__item    cloths-menu__item${
-              MenFilter === "Tee" ? "--1" : ""
+              MenFilter === "T-Shirt" ? "--1" : ""
             }`}
             onClick={() => setFilter("T-Shirt")}
           >
@@ -67,7 +76,9 @@ const Men = (props) => {
             t-shirt{" "}
           </li>
           <li
-            className="cloths-menu__item"
+             className={`cloths-menu__item    cloths-menu__item${
+              MenFilter === "Long Sleeve" ? "--1" : ""
+            }`}
             onClick={() => setFilter("Long Sleeve")}
           >
             longsleeve
@@ -82,7 +93,9 @@ const Men = (props) => {
             hoodie
           </li>
           <li
-            className="cloths-menu__item"
+               className={`cloths-menu__item    cloths-menu__item${
+              MenFilter === "Joggers" ? "--1" : ""
+            }`}
             onClick={() => setFilter("Joggers")}
           >
             Joggers
@@ -91,15 +104,15 @@ const Men = (props) => {
       </div>
       <div className="product-list">
         {Mens().map((item, i) => (
-          <Link to={`/Men/${item.id}`} key={i} className="product-list__box">
-            {console.log(item, "item")}
+          <Link  to={`/Men/${item.id}`} key={i} className="product-list__box">
+           <div><h1>Click for Price</h1></div>
             <img
               src={item.thumbnail_url}
               alt="bb"
               className="product-list__img"
             />
             <span className="product-list__title">{item.name}</span>
-            <span className="product-list__price">30$</span>
+            {/* <span className="product-list__price">30$</span> */}
           </Link>
         ))}
       </div>

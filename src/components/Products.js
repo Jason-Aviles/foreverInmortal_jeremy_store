@@ -17,11 +17,13 @@ const Products = (props) => {
   //     .get(`/products/${props.match.params.id}`)
   //     .then((data) => setProducts(data.data.result.sync_variants))
   //     .catch((err) => console.log(err));
-     const res = await  API()
-      .get(`/products/${props.match.params.id}`)
-      
+    
       
       try {
+ const res = await  API()
+      .get(`/products/${props.match.params.id}`)
+      
+
  setProducts(res.data.result.sync_variants)
 
 
@@ -110,20 +112,15 @@ useEffect(()=>{updateCart(props.cart)})
   
 
 
-console.log(JSON.parse(localStorage.getItem('shoppingCart')),"carttt")
-
-
-
-
-
-
-  return (
+  return !JSON.parse(localStorage.getItem('shoppingCart')) ?  (
+    <h1>no items in the shopping cart</h1>
+  ) : (
     <div style={{ display: "block" }} className="product">
       {products
         .filter(
           (items) =>
             items.name.match(`${shirtColor} / ${shirtSize}`) ||
-            (items.name.match(`${shirtColor} - ${shirtSize}`)    && items)
+            (items.name.match(`${shirtColor} - ${shirtSize}`)    && items) 
         )
         .map((info, i) => (
           <div className="product__container" key={i}>
@@ -307,17 +304,18 @@ console.log(JSON.parse(localStorage.getItem('shoppingCart')),"carttt")
                   </div>
                   <div
                     onClick={() => setShirtSize("XL")}
-                    className="product__sizeBox"
+                    className={`product__sizeBox  ${info.name.match("Men") !== null  ? ""  : "u-no-display"}`}
                   >
                     XL
                   </div>
+                
                 </div>
               </div>
 
               <div className="addCArt" onClick={() => addToCart(info.id,props.cart,props.setCart)}>
                 <a href="#" className="addCArt__Btn">
                   <img className="addCArt__logo" src={shoppingcart} alt="b" />
-                  add to cart
+                  add 
                 </a>
               </div>
             </div>

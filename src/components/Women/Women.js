@@ -40,29 +40,25 @@ const Women = (props) => {
       }
     });
 
-  console.log(Womens(), "jj");
+
 
   const [menuFilter, setMenuFilter] = useState("");
 
   const [products, setProducts] = useState([]);
 
-  const fetchProducts = async () => {
-    return await API()
-      .get(`/products/${Womens().map((item, i) => item.id)}`)
-      .then((data) => setProducts(data.data.result.sync_variants))
-      .catch((err) => console.log(err));
-  };
+  // const fetchProducts = async () => {
+  //   return await API()
+  //     .get(`/products/${Womens().map((item, i) => item.id)}`)
+  //     .then((data) => setProducts(data.data.result.sync_variants))
+  //     .catch((err) => console.log(err));
+  // };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
 
-  const idLoop = (data) => {
-    let i = 0;
-    let o = {};
-  };
 
-  console.log(idLoop(Womens().map((item, i) => item.id)), "price");
+  
   return (
     <div className="product-container">
       <div className="cloths-menu">
@@ -70,7 +66,7 @@ const Women = (props) => {
           <li className="cloths-menu__item">shop</li>
           <li
             className={`cloths-menu__item    cloths-menu__item${
-              womenFilter === "Tee" ? "--1" : ""
+              womenFilter === "T-Shirt" ? "--1" : ""
             }`}
             onClick={() => setFilter("T-Shirt")}
           >
@@ -78,7 +74,9 @@ const Women = (props) => {
             t-shirt{" "}
           </li>
           <li
-            className="cloths-menu__item"
+              className={`cloths-menu__item    cloths-menu__item${
+              womenFilter === "Long Sleeve" ? "--1" : ""
+            }`}
             onClick={() => setFilter("Long Sleeve")}
           >
             longsleeve
@@ -93,7 +91,9 @@ const Women = (props) => {
             hoodie
           </li>
           <li
-            className="cloths-menu__item"
+             className={`cloths-menu__item    cloths-menu__item${
+              womenFilter === "Joggers" ? "--1" : ""
+            }`}
             onClick={() => setFilter("Joggers")}
           >
             Joggers
@@ -103,7 +103,7 @@ const Women = (props) => {
       <div className="product-list">
         {Womens().map((item, i) => (
           <Link to={`/Women/${item.id}`} key={i} className="product-list__box">
-            {console.log(item, "item")}
+           
             <img
               src={item.thumbnail_url}
               alt="bb"

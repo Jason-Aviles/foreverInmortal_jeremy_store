@@ -1,14 +1,10 @@
-import axios from 'axios'
-
+import axios from "axios";
+require("dotenv").config();
 export const API = () => {
-  
-  
-    return axios.create({
-      headers: {
-        Authorization: 'Basic dndqYjk1M2wtcGUyMS04bTVvOmt3ZTktdW9hNGh5bnUzdmd2'
-     
-      },
- baseURL: 'https://cors-anywhere.herokuapp.com/https://api.printful.com/store'
-    });
-  };
-  
+  return axios.create({
+    headers: {
+      Authorization: process.env.REACT_APP_Auth,
+    },
+    baseURL: process.env.REACT_APP_API_URL1,
+  });
+};

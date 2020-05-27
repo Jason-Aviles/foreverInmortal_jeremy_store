@@ -51,11 +51,29 @@ class recipient extends Component {
     });
   };
 
-
-
   printfulOBj = () => {
     let checkCart = JSON.parse(localStorage.getItem("checkCart"));
     let recipientofBuyer = {
+      recipient: {
+        name: this.state.name,
+        address1: this.state.address1,
+        city: this.state.city,
+        state_code: this.state.state_code,
+        country_code: this.state.country_code,
+        zip: this.state.zip,
+
+        email: this.state.email,
+      },
+      items: [...checkCart],
+    };
+
+    return recipientofBuyer;
+  };
+
+  printfulOBj2 = () => {
+    let checkCart = JSON.parse(localStorage.getItem("checkOrder"));
+    let recipientofBuyer = {
+      confirm:true,
       recipient: {
         name: this.state.name,
         address1: this.state.address1,
@@ -79,9 +97,8 @@ class recipient extends Component {
   };
 
   render() {
-    console.log(this.printfulOBj());
     let checkCart = JSON.parse(localStorage.getItem("checkCart"));
-    return !checkCart.length || !this.props.cart.length ? (
+    return !this.props.cart.length || !checkCart ? (
       <h1>no items in the shopping cart</h1>
     ) : (
       <div className="recipient">
@@ -196,7 +213,24 @@ checkCart.map(data => <div className="recipient__content">
               ))}
             </select>
           </label>
-      <Link to="/finalcheckOut">   <button  onClick={ ()=>localStorage.setItem('finalOrder', JSON.stringify(  this.printfulOBj()))}>confirm</button></Link> 
+          <Link to="/finalcheckOut">
+            {" "}
+            <button
+              onClick={() =>{
+                localStorage.setItem(
+                  "finalOrder",
+                  JSON.stringify(this.printfulOBj())
+                );
+                localStorage.setItem(
+                  "axiosOrder",
+                  JSON.stringify(this.printfulOBj2())
+                )
+                }
+              }
+            >
+              confirm
+            </button>
+          </Link>
         </form>
       </div>
     );

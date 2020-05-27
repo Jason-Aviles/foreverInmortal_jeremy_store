@@ -1,11 +1,15 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios"
+import { Codes } from "./utils/countryCodes";
 import {
   Elements,
   CardElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+require("dotenv").config();
+
+
 const Creditfrom = (props) => {
 const stripeMoney =props.finalPrice() * 100
 
@@ -38,16 +42,32 @@ useEffect(()=>{return setAmount( props.finalPrice() && (props.finalPrice() * 100
     },
   };
 
+
+  const createOrder = async (product) => {
+    return await  Codes()
+        .post("/orders", product)
+        .then((data) => console.log(data,"data"))
+        .catch((err) => console.log(err,"error"));
+    };
+
+
+
 const [status ,setStatus] = useState()
 
   const stripe = useStripe();
   const elements = useElements();
 
+  let final= JSON.parse(localStorage.getItem("finalOrder"));
+
+
+  let finalOrderee = JSON.parse(localStorage.getItem("axiosOrder"));
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const cardElement = elements.getElement(CardElement);
-
+    let final= JSON.parse(localStorage.getItem("finalOrder"));
+   
     // Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -71,11 +91,16 @@ const [status ,setStatus] = useState()
      const {id} = paymentMethod
      console.log(id)
 try {
-  const {data} = await axios.post("http://localhost:7000/api/charge",{id, amount})
+  
+  createOrder(finalOrderee)
+  const {data} = await axios.post(process.env.REACT_APP_charge,{id, amount})
+ 
 props.success()
 localStorage.removeItem("checkCart")
 localStorage.removeItem("shoppingCart")
 localStorage.removeItem("finalOrder")
+localStorage.clear()
+ 
 } catch (error) {
   console.log(error.message,"error")
   return setStatus(error.message)
@@ -84,6 +109,7 @@ localStorage.removeItem("finalOrder")
 
     }
   };
+  let finalOrder = JSON.parse(localStorage.getItem("finalOrder"));
 
   return ( 
     <form className="form-credit" onSubmit={handleSubmit}><h1 className="finalCheck__header--sub">Enter Credit Card</h1>
@@ -118,7 +144,7 @@ localStorage.removeItem("finalOrder")
           onChange={e => setEmail(e.target.value)}
         /></div></div>
       <CardElement style={{width:"40%"}}  options={CARD_OPTIONS} />
-      <button disabled={props.charge} className="btn" type="submit" disabled={!stripe}>
+      <button onClick={ props.setCharge(true)} disabled={props.charge} className="btn" type="submit" >
         Confirm order
       </button>
       {status}

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import {Link} from "react-router-dom";
-import Recipient from "./Recipient"
+import { Link } from "react-router-dom";
+import Recipient from "./Recipient";
 const Cart = (props) => {
   const RemoveDuplicates = (array, key) => {
     return array.reduce((arr, item) => {
@@ -49,6 +49,26 @@ const Cart = (props) => {
     }, {})
   );
 
+  const sync_variant_id = Object.values(
+    updatedArray().reduce((r, e) => {
+      let k = `${e.id}`;
+      if (!r[k]) r[k] = { sync_variant_id: e.id, quantity: 1 };
+      else r[k].quantity += 1;
+
+      return r;
+    }, {})
+  );
+
+  const createOfArrayOrder = Object.values(
+    updatedArray().reduce((r, e) => {
+      let k = `${e.id}`;
+      if (!r[k]) r[k] = { id: e.id, quantity: 1 };
+      else r[k].quantity += 1;
+
+      return r;
+    }, {})
+  );
+
   const RemoveItem = (item) => {
     let i = 0;
     let newcart = props.cart;
@@ -63,35 +83,32 @@ const Cart = (props) => {
     }
   };
 
-
-
   const IncrementItem = (item) => {
     let i = 0;
     let newcart = props.cart;
 
     let tempProducts = [...newcart];
 
-    let index = 0
+    let index = 0;
 
     while (i < props.cart.length) {
       if (props.cart[i].id === item) {
-        index =i
-       
+        index = i;
+
         localStorage.setItem("shoppingCart", JSON.stringify(newcart));
         let oldCart = JSON.parse(localStorage.getItem("shoppingCart"));
 
         const product = tempProducts[index];
 
         // setDetailProducts(tempProducts);
-        return  props.setCart([...props.cart, product])
-        
+        return props.setCart([...props.cart, product]);
       }
       i++;
     }
   };
-console.log(quantityOfArrayOfObjects,"num")
+  console.log(createOfArrayOrder, "num");
 
-useEffect(() => props.setItemRecipient(quantityOfArrayOfObjects),[]);
+  useEffect(() => props.setItemRecipient(quantityOfArrayOfObjects), []);
   useEffect(() => props.updateCart());
   return !props.cart.length ? (
     <h1>empty cart</h1>
@@ -110,12 +127,17 @@ useEffect(() => props.setItemRecipient(quantityOfArrayOfObjects),[]);
         <tbody>
           {quantityOfArrayOfObjects.map((cartData, i) => (
             <tr key={i} className="cart__section">
-              <td className="cart__detail u_flex"><i  onClick={() =>
-                    IncrementItem(cartData.id)
-                  } class="fas fa-plus-circle u-point"></i><h3>{cartData.quantity}</h3>
-                  <i  onClick={() => RemoveItem(cartData.id)}class="fas fa-minus-circle u-point"></i>
-                  
-                  </td>
+              <td className="cart__detail u_flex">
+                <i
+                  onClick={() => IncrementItem(cartData.id)}
+                  class="fas fa-plus-circle u-point"
+                ></i>
+                <h3>{cartData.quantity}</h3>
+                <i
+                  onClick={() => RemoveItem(cartData.id)}
+                  class="fas fa-minus-circle u-point"
+                ></i>
+              </td>
               <td>
                 <h4 class="cart__header">
                   <img
@@ -130,19 +152,27 @@ useEffect(() => props.setItemRecipient(quantityOfArrayOfObjects),[]);
                   <div class="cart__content">{cartData.name}</div>
                 </h4>
               </td>
-              <td className="cart__detail">
-               ${cartData.retail_price}{" "}
-             
-              </td>
-              <td className="cart__detail">
-               ${cartData.total}{" "}
-                
-              </td>
+              <td className="cart__detail">${cartData.retail_price} </td>
+              <td className="cart__detail">${cartData.total} </td>
             </tr>
           ))}
         </tbody>
       </table>
-    <Link onClick={ ()=>localStorage.setItem('checkCart', JSON.stringify(  quantityOfArrayOfObjects))} to="/recipient">CheckOut</Link>
+      <Link
+        onClick={() => {
+          localStorage.setItem(
+            "checkCart",
+            JSON.stringify(quantityOfArrayOfObjects)
+          );
+          localStorage.setItem(
+            "checkOrder",
+            JSON.stringify(sync_variant_id)
+          );
+        }}
+        to="/recipient"
+      >
+        CheckOut
+      </Link>
     </>
   );
 };
