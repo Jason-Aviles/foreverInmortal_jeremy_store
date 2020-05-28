@@ -109,7 +109,7 @@ const [itemRecipient, setItemRecipient] = useState([]);
   useEffect(() =>{ fetchProducts()}, []);
   console.log("{object}",products)
 
-  return (
+  return !products ? (<h1>Loading.....</h1>) : (
     <div className="container">
       <header className="header">
         <div className="logo-header__container">

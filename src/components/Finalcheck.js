@@ -69,8 +69,9 @@ if(status === "success"){
 console.log( Math.round( Number(fullTax) + Number(fullshipping) + Number(totalPrice())) ,"o")
   return !finalOrder || !finalPrice() || finalPrice() === 0 ? (
     <h1>
-      Please go back to the previous page and enter your shipping information{" "}
-      <Link to="/recipient">Click here</Link>
+      {/* Please go back to the previous page and enter your shipping information{" "}
+      <Link to="/recipient">Click here</Link> */}
+      Loading.............
     </h1>
   ) : (
     <div>

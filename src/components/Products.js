@@ -114,7 +114,7 @@ useEffect(()=>{updateCart(props.cart)})
 
   return !JSON.parse(localStorage.getItem('shoppingCart')) ?  (
     <h1>no items in the shopping cart</h1>
-  ) : (
+  ) : !products ? (<h1>Loading....</h1>) :(
     <div style={{ display: "block" }} className="product">
       {products
         .filter(
@@ -136,88 +136,88 @@ useEffect(()=>{updateCart(props.cart)})
                   <div
                     onClick={() => setShirtColor("Red")}
                     className={
-                      checkColor("Red") ? `product__color--red` : "u-no-display"
+                      `${checkColor("Red") ? `product__color--red` : "u-no-display"}  ${shirtColor === "Red" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
                     onClick={() => setShirtColor("Black")}
                     className={
-                      checkColor("Black")
+                      `${checkColor("Black")
                         ? "product__color--black"
-                        : "u-no-display"
+                        : "u-no-display"}  ${shirtColor === "Black" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
                     onClick={() => setShirtColor("Athletic Heather")}
                     className={
-                      checkColor("Athletic Heather")
+                     ` ${checkColor("Athletic Heather")
                         ? "product__color--Athletic-Heather"
-                        : "u-no-display"
+                        : "u-no-display"}  ${shirtColor === "Athletic Heather" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
                     onClick={() => setShirtColor("Gold")}
                     className={
-                      checkColor("Gold")
+                     ` ${checkColor("Gold")
                         ? "product__color--Gold"
-                        : "u-no-display"
+                        : "u-no-display"}  ${shirtColor === "Gold" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
                     onClick={() => setShirtColor("Lilac")}
                     className={
-                      checkColor("Lilac")
+                      `${checkColor("Lilac")
                         ? "product__color--Lilac"
-                        : "u-no-display"
+                        : "u-no-display"}  ${shirtColor === "Lilac" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
-                    onClick={() => setShirtColor("navy")}
+                    onClick={() => setShirtColor("Navy")}
                     className={
-                      checkColor("navy")
+                     ` ${checkColor("Navy")
                         ? "product__color--navy"
-                        : "u-no-display"
+                        : "u-no-display"}   ${shirtColor === "Navy" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
                     onClick={() => setShirtColor("Black Heather")}
                     className={
-                      checkColor("Black Heather")
+                     ` ${checkColor("Black Heather")
                         ? "product__color--Black-Heather"
-                        : "u-no-display"
+                        : "u-no-display"}  ${shirtColor === "Black Heather" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
                     onClick={() => setShirtColor("Maroon")}
                     className={
-                      checkColor("Maroon")
+                   `  ${checkColor("Maroon")
                         ? "product__color--Maroon"
-                        : "u-no-display"
+                        : "u-no-display"}   ${shirtColor === "Maroon" ? "shirtColor "  : "" } `
                     }
                   ></div>
 
                   <div
                     onClick={() => setShirtColor("Military Green")}
                     className={
-                      checkColor("Military Green")
+                      `${checkColor("Military Green")
                         ? "product__color--Military-Green"
-                        : "u-no-display"
+                        : "u-no-display"}  ${shirtColor === "Military Green" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
                     onClick={() => setShirtColor("White")}
                     className={
-                      checkColor("White")
+                      `${checkColor("White")
                         ? "product__color--white"
-                        : "u-no-display"
+                        : "u-no-display"}   ${shirtColor === "White" ? "shirtColor "  : "" }`
                     }
                   ></div>
                   <div
                     onClick={() => setShirtColor("Peach")}
                     className={
-                      checkColor("Peach")
+                      `${checkColor("Peach")
                         ? "product__color--crop"
-                        : "u-no-display"
+                        : "u-no-display"}   ${shirtColor === "Peach" ? "shirtColor "  : "" }`
                     }
                   ></div>
 
@@ -225,9 +225,9 @@ useEffect(()=>{updateCart(props.cart)})
 <div
                     onClick={() => setShirtColor("Jet Black")}
                     className={
-                      checkColor("Jet Black")
+                     ` ${checkColor("Jet Black")
                         ? "product__color--jetBlack"
-                        : "u-no-display"
+                        : "u-no-display"}   ${shirtColor === "Jet Black" ? "shirtColor "  : "" }`
                     }
                   ></div>
 
@@ -236,9 +236,9 @@ useEffect(()=>{updateCart(props.cart)})
 <div
                     onClick={() => setShirtColor("Royal Blue")}
                     className={
-                      checkColor("Royal Blue")
+                      `${checkColor("Royal Blue")
                         ? "product__color--royalBlue"
-                        : "u-no-display"
+                        : "u-no-display"}    ${shirtColor === "Royal Blue" ? "shirtColor "  : "" }`
                     }
                   ></div>
 
@@ -248,27 +248,29 @@ useEffect(()=>{updateCart(props.cart)})
 <div
                     onClick={() => setShirtColor("Baby Pink")}
                     className={
-                      checkColor("Baby Pink")
+                     ` ${checkColor("Baby Pink")
                         ? "product__color--babyPink"
-                        : "u-no-display"
+                        : "u-no-display"}   ${shirtColor === "Baby Pink" ? "shirtColor "  : "" }`
                     }
                   ></div>
 
 <div
                     onClick={() => setShirtColor("Baby Blue")}
                     className={
-                      checkColor("Baby Blue")
+                    `  ${checkColor("Baby Blue")
                         ? "product__color--babyBlue"
-                        : "u-no-display"
+                        : "u-no-display"}    ${shirtColor === "Baby Blue" ? "shirtColor "  : "" }`
                     }
                   ></div>
 
 <div
                     onClick={() => setShirtColor("Heather Grey")}
                     className={
-                      checkColor("Heather Grey")
+                   ` ${  checkColor("Heather Grey")
                         ? "product__color--heatherGrey"
-                        : "u-no-display"
+                        : "u-no-display" }
+
+                        ${shirtColor === "Heather Grey" ? "shirtColor "  : "" }`
                     }
                   ></div>
 
@@ -286,25 +288,25 @@ useEffect(()=>{updateCart(props.cart)})
                 <div className="product__color">
                   <div
                     onClick={() => setShirtSize("S")}
-                    className="product__sizeBox"
+                    className={`product__sizeBox ${shirtSize === 'S' ? "shirtSize" : "" }`}
                   >
                     S
                   </div>
                   <div
                     onClick={() => setShirtSize("M")}
-                    className="product__sizeBox"
+                    className={`product__sizeBox ${shirtSize === 'M' ? "shirtSize" : "" }`}
                   >
                     M
                   </div>
                   <div
                     onClick={() => setShirtSize("L")}
-                    className="product__sizeBox"
+                    className={`product__sizeBox ${shirtSize === 'L' ? "shirtSize" : "" }`}
                   >
                     L
                   </div>
                   <div
                     onClick={() => setShirtSize("XL")}
-                    className={`product__sizeBox  ${info.name.match("Men") !== null  ? ""  : "u-no-display"}`}
+                    className={`product__sizeBox  ${info.name.match("Men") !== null  ? ""  : "u-no-display"}  ${shirtSize === 'XL' ? "shirtSize" : "" }`}
                   >
                     XL
                   </div>

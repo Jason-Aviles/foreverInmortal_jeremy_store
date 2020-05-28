@@ -98,7 +98,9 @@ class recipient extends Component {
 
   render() {
     let checkCart = JSON.parse(localStorage.getItem("checkCart"));
-    return !this.props.cart.length || !checkCart ? (
+    return !this.state.country ? (
+      <h1>Loading.......</h1>
+    ) :  !this.props.cart || !checkCart ? (
       <h1>no items in the shopping cart</h1>
     ) : (
       <div className="recipient">

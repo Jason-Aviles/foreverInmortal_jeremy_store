@@ -128,10 +128,10 @@ body {
   font-weight: 500;
   transform: translate(-50%, -50%);
   text-decoration: none;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 4rem;
   background-color: transparent;
-  border: .8rem solid #fff;
+  border: 0.8rem solid #fff;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
   transition: all 1s ease-out;
   text-transform: uppercase; }
@@ -266,7 +266,7 @@ body {
       .shopping-cart__circle {
         background-color: #ff8686;
         border-radius: 10rem;
-        font-size: .5rem;
+        font-size: 0.5rem;
         top: 1rem;
         display: inline-table;
         justify-content: center;
@@ -277,7 +277,7 @@ body {
         width: 1rem;
         height: 1rem;
         text-align: center;
-        padding: .5rem;
+        padding: 0.5rem;
         font-weight: 400; } }
 
 .active {
@@ -380,7 +380,11 @@ body {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border: 1px solid black;
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+  cursor: pointer; }
+  .product__sizeBox:hover {
+    color: darkcyan;
+    border: 1px solid darkcyan; }
 
 .product__container {
   padding: 2rem;
@@ -422,112 +426,160 @@ body {
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--red:hover {
+      border: 1.5px solid orange; }
   .product__color--black {
     background-color: black;
     height: 2rem;
+    cursor: pointer;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
     border-bottom: 0.5px solid black; }
+    .product__color--black:hover {
+      border: 1.5px solid orange; }
   .product__color--Gold {
     background-color: gold;
     height: 2rem;
+    cursor: pointer;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
     border-bottom: 0.5px solid black; }
+    .product__color--Gold:hover {
+      border: 1px solid orange; }
   .product__color--navy {
     background-color: navy;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--navy:hover {
+      border: 1px solid orange; }
   .product__color--Lilac {
     background-color: pink;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--Lilac:hover {
+      border: 1px solid orange; }
   .product__color--Athletic-Heather {
     background-color: #afafaf;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--Athletic-Heather:hover {
+      border: 1px solid orange; }
   .product__color--Maroon {
     background-color: Maroon;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--Maroon:hover {
+      border: 1px solid orange; }
   .product__color--Black-Heather {
     background-color: #313131;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--Black-Heather:hover {
+      border: 1px solid orange; }
   .product__color--white {
     background-color: #d8d8d8;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--white:hover {
+      border: 1px solid orange; }
   .product__color--Military-Green {
     background-color: #6b6952;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--Military-Green:hover {
+      border: 1px solid orange; }
   .product__color--crop {
     background-color: #e1ac92;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--crop:hover {
+      border: 1px solid orange; }
   .product__color--babyBlue {
     background-color: powderblue;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--babyBlue:hover {
+      border: 1px solid orange; }
   .product__color--babyPink {
     background-color: #e5c1f0;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--babyPink:hover {
+      border: 1px solid orange; }
   .product__color--heatherGray {
     background-color: #adaaaa;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--heatherGray:hover {
+      border: 1px solid orange; }
   .product__color--jetBlack {
     background-color: black;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--jetBlack:hover {
+      border: 1px solid orange; }
   .product__color--royalBlue {
     background-color: royalblue;
     height: 2rem;
     width: 2.2rem;
     margin-right: 0.5rem;
     border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black; }
+    border-bottom: 0.5px solid black;
+    cursor: pointer; }
+    .product__color--royalBlue:hover {
+      border: 1px solid orange; }
 
 .u-no-display {
   display: none !important; }
@@ -733,19 +785,19 @@ body {
   padding: 1rem;
   margin: 0rem;
   max-width: 40rem;
-  background-color: #FFF9F7; }
+  background-color: #fff9f7; }
   .form-credit__input-container {
     display: flex; }
   .form-credit__buyer {
     padding: 1rem; }
   .form-credit__input {
-    margin: .5rem;
+    margin: 0.5rem;
     padding: 1rem;
     border: none;
     width: 100%; }
 
 .btn {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   text-align: center;
   color: #ebebeb;
   font-weight: 600;
@@ -758,3 +810,11 @@ body {
   .btn:hover {
     color: black;
     background: #ebebeb; }
+
+.shirtSize {
+  color: darkgreen;
+  border: 1.5px solid darkgreen;
+  font-weight: 600; }
+
+.shirtColor {
+  border: 1.5px solid #13899e; }

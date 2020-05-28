@@ -30,8 +30,8 @@
     flex: 0 0 50%;
     backface-visibility: hidden;
     transition: color 0.5s ease-out;
-    @media only screen and (max-width:$bp-small){
-      font-size: 1.5rem ;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.5rem;
     }
   }
   &__item {
@@ -72,8 +72,8 @@
   &__img {
     width: 100%;
     height: 95vh;
-    @media only screen and (max-width:$bp-small){
-      height: 45.5rem ;
+    @media only screen and (max-width: $bp-small) {
+      height: 45.5rem;
     }
   }
 }
@@ -88,32 +88,30 @@
   left: 15%;
   color: #fff;
   font-weight: 500;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   text-decoration: none;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 4rem;
   background-color: transparent;
-  border: .8rem solid #fff;
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.3);
+  border: 0.8rem solid #fff;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
   transition: all 1s ease-out;
   text-transform: uppercase;
-  @media only screen and (max-width:$bp-small){
-    font-size: 2rem ;
+  @media only screen and (max-width: $bp-small) {
+    font-size: 2rem;
   }
-  @media only screen and (max-width:$bp-tiny){
-    
-   
-  
+  @media only screen and (max-width: $bp-tiny) {
     font-size: 1.5rem;
-   
   }
-  @media only screen and (max-width:$bp-tinniest){ font-size: 1rem;}
+  @media only screen and (max-width: $bp-tinniest) {
+    font-size: 1rem;
+  }
   &:hover {
     box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.308);
     border: 0.8rem solid rgb(228, 46, 46);
     color: rgb(228, 46, 46);
-    transform: translate(-50%,-52%);
+    transform: translate(-50%, -52%);
   }
 }
 
@@ -127,25 +125,21 @@
 
   width: 100%;
   line-height: 13rem;
-  @media only screen and (max-width:$bp-small){
+  @media only screen and (max-width: $bp-small) {
     font-size: large;
     line-height: 10rem;
     font-weight: 500;
   }
-  @media only screen and (max-width:$bp-smallest){
+  @media only screen and (max-width: $bp-smallest) {
     font-weight: 500;
     line-height: 6rem;
   }
 
-  @media only screen and (max-width:$bp-tinniest){
-    
-     line-height: 4rem;
-  font-size: 1.5rem;
-  font-weight: 400;
-
-
+  @media only screen and (max-width: $bp-tinniest) {
+    line-height: 4rem;
+    font-size: 1.5rem;
+    font-weight: 400;
   }
-
 
   &__word {
   }
@@ -182,18 +176,13 @@
       left: 11.8%;
       height: 90rem;
       transform: translate(-42%, -34.5%);
-      @media only screen and (max-width:$bp-smallest){
-    
+      @media only screen and (max-width: $bp-smallest) {
         height: 56rem;
       }
 
-      @media only screen and (max-width:$bp-tinniest){
-    
+      @media only screen and (max-width: $bp-tinniest) {
         height: 40rem;
-    
-   
-   
-     }
+      }
     }
   }
 }
@@ -218,31 +207,18 @@
   text-transform: uppercase;
   color: #00000008;
 
-
-
-
-
-
-  @media only screen and (max-width:$bp-smallest){
-    
-   
+  @media only screen and (max-width: $bp-smallest) {
     width: 44%;
     top: 50%;
     left: 50.8%;
- 
+
     transform: translate(-17%, 186%);
     font-size: 4rem;
-   
   }
 
-  @media only screen and (max-width:$bp-tiny){
-    
-   
-  
+  @media only screen and (max-width: $bp-tiny) {
     font-size: 3rem;
-   
   }
-
 }
 
 .shopping-cart {
@@ -271,16 +247,10 @@
     padding: 1rem;
     font-weight: 400;
 
-
-
-
-
-    @media only screen and (max-width:$bp-small){
-     
-    
-    background-color: #ff8686;
+    @media only screen and (max-width: $bp-small) {
+      background-color: #ff8686;
       border-radius: 10rem;
-      font-size: .5rem;
+      font-size: 0.5rem;
       top: 1rem;
       display: inline-table;
       justify-content: center;
@@ -291,12 +261,9 @@
       width: 1rem;
       height: 1rem;
       text-align: center;
-      padding: .5rem;
+      padding: 0.5rem;
       font-weight: 400;
     }
-
-
-    
   }
 }
 .active {
@@ -323,14 +290,10 @@
     text-transform: capitalize;
     margin-bottom: 0.5rem;
     font-size: 2rem;
-    
+
     width: 65%;
-    @media only screen and (max-width:$bp-smallest){
-    
-   
-      
+    @media only screen and (max-width: $bp-smallest) {
       font-size: 1.5rem;
-     
     }
 
     &--1 {
@@ -338,21 +301,18 @@
       border-bottom: 1px solid rgb(151, 48, 48);
     }
     &:not(:first-child):hover {
-      color: rgb(212, 48, 48);cursor: pointer;
+      color: rgb(212, 48, 48);
+      cursor: pointer;
     }
-    
+
     &:first-child {
       margin-bottom: 1rem;
       padding: 1rem;
       font-weight: 500;
       font-size: 3rem;
       text-transform: uppercase;
-      @media only screen and (max-width:$bp-smallest){
-    
-   
-      
+      @media only screen and (max-width: $bp-smallest) {
         font-size: 2rem;
-       
       }
     }
   }
@@ -393,7 +353,6 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: black;
-    
   }
 }
 
@@ -401,12 +360,9 @@
   &__title {
     margin-bottom: 2rem;
     font-weight: 500;
-    @media only screen and (max-width:$bp-smallest){
-    
-   
+    @media only screen and (max-width: $bp-smallest) {
       font-weight: 400;
       font-size: 1rem;
-     
     }
   }
   &__price {
@@ -427,6 +383,11 @@
     font-size: 1rem;
     border: 1px solid black;
     margin-right: 0.5rem;
+    cursor: pointer;
+    &:hover{
+      color: darkcyan;
+      border: 1px solid darkcyan;
+    }
   }
 
   &__container {
@@ -458,6 +419,7 @@
   }
 
   &__color {
+
     &--title {
       margin-bottom: 1rem;
     }
@@ -474,23 +436,29 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      &:hover{border: 1.5px solid orange;}
+      cursor: pointer;
     }
 
     &--black {
       background-color: black;
       height: 2rem;
+      cursor: pointer;
       width: 2.2rem;
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      &:hover{border: 1.5px solid orange;}
     }
     &--Gold {
       background-color: gold;
       height: 2rem;
+      cursor: pointer;
       width: 2.2rem;
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      &:hover{border: 1px solid orange;}
     }
     &--navy {
       background-color: navy;
@@ -499,6 +467,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      &:hover{border: 1px solid orange;}
+      cursor: pointer;
     }
     &--Lilac {
       background-color: pink;
@@ -507,6 +477,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      &:hover{border: 1px solid orange;}
+      cursor: pointer;
     }
 
     &--Athletic-Heather {
@@ -516,6 +488,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
 
     &--Maroon {
@@ -525,6 +499,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
 
     &--Black-Heather {
@@ -534,6 +510,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
 
     &--white {
@@ -543,6 +521,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
     &--Military-Green {
       background-color: #6b6952;
@@ -551,6 +531,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
 
     &--crop {
@@ -560,8 +542,9 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
-
 
     &--babyBlue {
       background-color: powderblue;
@@ -570,6 +553,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
 
     &--babyPink {
@@ -579,6 +564,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
 
     &--heatherGray {
@@ -588,6 +575,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
     &--jetBlack {
       background-color: rgb(0, 0, 0);
@@ -596,6 +585,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
     &--royalBlue {
       background-color: royalblue;
@@ -604,6 +595,8 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
+      cursor: pointer;
+      &:hover{border: 1px solid orange;}
     }
   }
 }
@@ -626,12 +619,10 @@
     text-decoration: none;
     font-weight: 500;
     color: black;
-    &:hover{
-    
+    &:hover {
       border: 2px solid rgb(211, 151, 22);
 
       color: rgb(211, 151, 22);
-
     }
   }
   &__logo {
@@ -743,7 +734,6 @@
 }
 
 .finalCheck {
-
   display: flex;
   flex: 0 0 55%;
   align-items: flex-start;
@@ -857,26 +847,27 @@
   margin-bottom: 1rem;
 }
 
-
 .form-credit {
   padding: 1rem;
   margin: 0rem;
   max-width: 40rem;
-  background-color:#FFF9F7;
-&__input-container{
-  display: flex;
-}
-  &__buyer {
-  padding: 1rem; }
-  &__input {
-    margin: .5rem;
-  padding: 1rem; border:none;width:100%;
+  background-color: #fff9f7;
+  &__input-container {
+    display: flex;
   }
-
+  &__buyer {
+    padding: 1rem;
+  }
+  &__input {
+    margin: 0.5rem;
+    padding: 1rem;
+    border: none;
+    width: 100%;
+  }
 }
 
-.btn{
-  padding:.5rem 1rem;
+.btn {
+  padding: 0.5rem 1rem;
   text-align: center;
   color: rgb(235, 235, 235);
   font-weight: 600;
@@ -884,13 +875,22 @@
   background: black;
   border: none;
   cursor: pointer;
-  width: 20rem;font-size: 1.5rem;
-  &:hover{ color: black ;
-    
-    background:rgb(235, 235, 235);
+  width: 20rem;
+  font-size: 1.5rem;
+  &:hover {
+    color: black;
+
+    background: rgb(235, 235, 235);
   }
 }
 
+.shirtSize {
+  color: darkgreen;
+  border: 1.5px solid darkgreen;
+  font-weight: 600;
+}
 
+.shirtColor {
 
-
+  border: 1.5px solid rgb(19, 137, 158);
+}
