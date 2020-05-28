@@ -150,7 +150,7 @@ localStorage.clear()}
           value={email}
           onChange={e => setEmail(e.target.value)}
         /></div></div>
-      <CardElement style={{width:"40%"}}  options={CARD_OPTIONS} />
+      <CardElement style={{width:"50%"}}  options={CARD_OPTIONS} />
       <button onClick={ props.setCharge(true)}  className="btn" type="submit" >
         Confirm order
       </button>
