@@ -7,6 +7,7 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import Cards from "./CardElemnt"
 require("dotenv").config();
 
 
@@ -127,13 +128,13 @@ localStorage.clear()}
      placeholder="Name"
           type="text"
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={e => {setName(e.target.value)}}
         />
           <input className="form-credit__input"
      placeholder="City"
           type="text"
           value={city}
-          onChange={e => setCity(e.target.value)}
+          onChange={e => {setCity(e.target.value)}}
         /></div>
 <div className="form-credit__input-container">
 <input className="form-credit__input"
@@ -149,8 +150,11 @@ localStorage.clear()}
           type="text"
           value={email}
           onChange={e => setEmail(e.target.value)}
-        /></div></div>
-      <CardElement style={{width:"50%"}}  options={CARD_OPTIONS} />
+        /></div>
+        
+        </div>
+      <CardElement style={{width:"50%", margin:"2rem",display:"block",background:"white"}}  options={CARD_OPTIONS} />
+      {/* <Cards style={{width:"50%"}}  options={CARD_OPTIONS}/> */}
       <button onClick={ props.setCharge(true)}  className="btn" type="submit" >
         Confirm order
       </button>
