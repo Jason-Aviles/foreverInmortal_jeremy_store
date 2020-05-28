@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { API } from "../utils/index";
+
 const Women = (props) => {
   const Women = () =>
     props.products.filter((data) => data.name.match("Women") && data);

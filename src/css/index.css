@@ -639,7 +639,8 @@ body {
   display: flex;
   flex: 0 0 55%;
   align-items: flex-start;
-  justify-content: center; }
+  justify-content: center;
+  display: block; }
   .finalCheck__header {
     display: flex;
     border-bottom: 1px solid rgba(226, 185, 185, 0.432);
@@ -680,7 +681,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 4rem; }
+  margin: 0rem; }
 
 .total {
   flex: 1 1;
@@ -729,8 +730,8 @@ body {
   margin-bottom: 1rem; }
 
 .form-credit {
-  padding: 2rem;
-  margin: 1rem;
+  padding: 1rem;
+  margin: 0rem;
   max-width: 40rem;
   background-color: #FFF9F7; }
   .form-credit__input-container {

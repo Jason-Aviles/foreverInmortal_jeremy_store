@@ -743,10 +743,12 @@
 }
 
 .finalCheck {
+
   display: flex;
   flex: 0 0 55%;
   align-items: flex-start;
   justify-content: center;
+  display: block;
   &__header {
     display: flex;
     border-bottom: 1px solid rgba(226, 185, 185, 0.432);
@@ -798,7 +800,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 4rem;
+  margin: 0rem;
 }
 
 .total {
@@ -857,8 +859,8 @@
 
 
 .form-credit {
-  padding: 2rem;
-  margin: 1rem;
+  padding: 1rem;
+  margin: 0rem;
   max-width: 40rem;
   background-color:#FFF9F7;
 &__input-container{
