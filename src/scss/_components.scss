@@ -453,7 +453,7 @@
    
     &--box {
       &__container {
-       
+       height: 10rem;
         display: flex;
         align-items: flex-start;
         flex-direction: row;
@@ -462,6 +462,7 @@
       margin-left: 2rem;
       
       &--unselected{
+        height: 6rem;
        border: 2px black solid;
        width: 15%;
        margin-left: 2rem;
@@ -469,6 +470,7 @@
 &:hover{border: 2px rgb(30, 110, 185) solid;}
       }
       &--selected{
+        height: 6rem;
         cursor: pointer;
       border: 2px rgb(61, 136, 150) solid;
       width: 15%;

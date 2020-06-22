@@ -448,10 +448,12 @@ body {
     width: 15%;
     margin-left: 2rem; }
     .product__img--box__container {
+      height: 10rem;
       display: flex;
       align-items: flex-start;
       flex-direction: row; }
     .product__img--box--unselected {
+      height: 6rem;
       border: 2px black solid;
       width: 15%;
       margin-left: 2rem;
@@ -459,6 +461,7 @@ body {
       .product__img--box--unselected:hover {
         border: 2px #1e6eb9 solid; }
     .product__img--box--selected {
+      height: 6rem;
       cursor: pointer;
       border: 2px #3d8896 solid;
       width: 15%;
