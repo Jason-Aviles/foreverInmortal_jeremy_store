@@ -105,7 +105,7 @@ console.log("object",props.products)
       <div className="product-list">
         {Mens().map((item, i) => (
           <Link  to={`/Men/${item.id}`} key={i} className="product-list__box">
-           <div><h1>Click for Price</h1></div>
+           <div className="product-list__click"><h1 >Click for Price</h1></div>
             <img
               src={item.thumbnail_url}
               alt="bb"

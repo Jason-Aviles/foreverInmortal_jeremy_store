@@ -107,6 +107,7 @@ props.success()
 if(data){localStorage.removeItem("checkCart")
 localStorage.removeItem("shoppingCart")
 localStorage.removeItem("finalOrder")
+props.setCharge(true)
 localStorage.clear()}
  
 } catch (error) {
@@ -120,7 +121,7 @@ localStorage.clear()}
   let finalOrder = JSON.parse(localStorage.getItem("finalOrder"));
 
   return ( 
-    <form className="form-credit" onSubmit={handleSubmit}><h1 className="finalCheck__header--sub">Enter Credit Card</h1>
+    <form className="form-credit" onSubmit={!props.charge ? handleSubmit : null}><h1 className="finalCheck__header--sub">Enter Credit Card</h1>
     <div className="form-credit__buyer">
     <div className="form-credit__input-container">
     

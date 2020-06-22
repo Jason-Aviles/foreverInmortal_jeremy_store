@@ -158,7 +158,7 @@ const Cart = (props) => {
           ))}
         </tbody>
       </table>
-      <Link
+      <Link style={{margin:"5px"}}  className="addCArt__Btn"
         onClick={() => {
           localStorage.setItem(
             "checkCart",

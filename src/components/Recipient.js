@@ -217,7 +217,7 @@ checkCart.map(data => <div className="recipient__content">
           </label>
           <Link to="/finalcheckOut">
             {" "}
-            <button
+            <button  className="addCArt__Btn"
               onClick={() =>{
                 localStorage.setItem(
                   "finalOrder",

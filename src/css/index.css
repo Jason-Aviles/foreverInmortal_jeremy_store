@@ -115,7 +115,7 @@ body {
     height: 95vh; }
     @media only screen and (max-width: 48em) {
       .banner__img {
-        height: 45.5rem; } }
+        height: 45.5vh; } }
 
 .carousel {
   position: relative; }
@@ -227,6 +227,9 @@ body {
   font-size: 6rem;
   text-transform: uppercase;
   color: #00000008; }
+  @media only screen and (max-width: 48em) {
+    .h1-fade {
+      font-size: 4rem; } }
   @media only screen and (max-width: 26.5625em) {
     .h1-fade {
       width: 44%;
@@ -266,15 +269,15 @@ body {
       .shopping-cart__circle {
         background-color: #ff8686;
         border-radius: 10rem;
-        font-size: 0.5rem;
-        top: 1rem;
+        font-size: 1rem;
+        top: 1.5rem;
         display: inline-table;
         justify-content: center;
         align-content: center;
         margin: 0 auto;
-        left: 90%;
+        left: 91%;
         position: absolute;
-        width: 1rem;
+        width: 2rem;
         height: 1rem;
         text-align: center;
         padding: 0.5rem;
@@ -329,7 +332,42 @@ body {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  width: 100%; }
+  width: 100%;
+  position: relative; }
+  .product-list__click {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 2rem; */
+    /* top: 27%; */
+    opacity: 0;
+    margin: 0 auto;
+    background: #be3a48b8;
+    background-image: black;
+    color: white;
+    width: 32%;
+    text-transform: uppercase;
+    height: 17.5%;
+    transition: all 0.5s ease-in; }
+    .product-list__click:hover {
+      opacity: 1; }
+    @media only screen and (max-width: 68.75em) {
+      .product-list__click {
+        height: 13%;
+        background-color: #710080; } }
+    @media only screen and (max-width: 48em) {
+      .product-list__click {
+        height: auto;
+        background-color: green; } }
+    @media only screen and (max-width: 26.5625em) {
+      .product-list__click {
+        height: 55%;
+        background-color: blue; } }
+    @media only screen and (max-width: 20em) {
+      .product-list__click {
+        height: 55%;
+        background-color: purple; } }
   .product-list__box {
     display: flex;
     justify-content: space-between;
@@ -358,8 +396,14 @@ body {
 .product__title {
   margin-bottom: 2rem;
   font-weight: 500; }
+  @media only screen and (max-width: 48em) {
+    .product__title {
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      font-size: 1.3rem; } }
   @media only screen and (max-width: 26.5625em) {
     .product__title {
+      margin-bottom: 0.5rem;
       font-weight: 400;
       font-size: 1rem; } }
 
@@ -375,6 +419,9 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   width: 30%; }
+  @media only screen and (max-width: 48em) {
+    .product__header {
+      width: 77%; } }
 
 .product__sizeBox {
   padding: 0.5rem 1rem;
@@ -395,10 +442,31 @@ body {
   width: 100%; }
 
 .product__img {
-  width: 100%; }
+  width: 100%;
+  border: 4px black solid; }
+  .product__img--box {
+    width: 15%;
+    margin-left: 2rem; }
+    .product__img--box__container {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row; }
+    .product__img--box--unselected {
+      border: 2px black solid;
+      width: 15%;
+      margin-left: 2rem;
+      cursor: pointer; }
+      .product__img--box--unselected:hover {
+        border: 2px #1e6eb9 solid; }
+    .product__img--box--selected {
+      cursor: pointer;
+      border: 2px #3d8896 solid;
+      width: 15%;
+      margin-left: 2rem; }
+      .product__img--box--selected:hover {
+        border: 2px #1e6eb9 solid; }
 
 .product__left {
-  border: 4px black solid;
   flex: 1;
   margin: 2rem; }
 
@@ -411,6 +479,10 @@ body {
   text-align: center;
   align-items: center;
   justify-content: space-around; }
+  @media only screen and (max-width: 48em) {
+    .product__right {
+      height: 27rem;
+      flex: 0 0 45%; } }
 
 .product__color {
   display: flex;
@@ -627,6 +699,13 @@ body {
   .cart__content {
     font-size: 1.5rem;
     font-weight: 400; }
+    @media only screen and (max-width: 26.5625em) {
+      .cart__content {
+        font-size: 1rem;
+        background-color: red; } }
+    @media only screen and (max-width: 48em) {
+      .cart__content {
+        font-size: 1rem; } }
 
 .u_flex {
   justify-content: space-between;
@@ -734,6 +813,12 @@ body {
   align-items: center;
   justify-content: space-between;
   margin: 0rem; }
+  @media only screen and (max-width: 48em) {
+    .final {
+      flex-direction: column-reverse; } }
+  @media only screen and (max-width: 26.5625em) {
+    .final {
+      flex-direction: column-reverse; } }
 
 .total {
   flex: 1 1;

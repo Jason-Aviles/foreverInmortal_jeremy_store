@@ -73,7 +73,7 @@
     width: 100%;
     height: 95vh;
     @media only screen and (max-width: $bp-small) {
-      height: 45.5rem;
+      height: 45.5vh;
     }
   }
 }
@@ -206,7 +206,9 @@
   font-size: 6rem;
   text-transform: uppercase;
   color: #00000008;
-
+  @media only screen and (max-width: $bp-small) {
+    font-size: 4rem;
+  }
   @media only screen and (max-width: $bp-smallest) {
     width: 44%;
     top: 50%;
@@ -250,15 +252,15 @@
     @media only screen and (max-width: $bp-small) {
       background-color: #ff8686;
       border-radius: 10rem;
-      font-size: 0.5rem;
-      top: 1rem;
+      font-size: 1rem;
+      top: 1.5rem;
       display: inline-table;
       justify-content: center;
       align-content: center;
       margin: 0 auto;
-      left: 90%;
+      left: 91%;
       position: absolute;
-      width: 1rem;
+      width: 2rem;
       height: 1rem;
       text-align: center;
       padding: 0.5rem;
@@ -326,6 +328,44 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  position: relative;
+  &__click {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 2rem; */
+    /* top: 27%; */
+    opacity: 0;
+    margin: 0 auto;
+    background: #be3a48b8;
+    background-image: black;
+    color: white;
+    width: 32%;
+    text-transform: uppercase;
+    height: 17.5%;
+    transition: all 0.5s ease-in;
+    &:hover {
+      opacity: 1;
+    }
+    @media only screen and (max-width: $bp-large) {
+      height: 13%;
+      background-color: rgb(113, 0, 128);
+    }
+    @media only screen and (max-width: $bp-small) {
+      height: auto;
+      background-color: green;
+    }
+    @media only screen and (max-width: $bp-smallest) {
+      height: 55%;
+      background-color: blue;
+    }
+
+    @media only screen and (max-width: $bp-tinniest) {
+      height: 55%;
+      background-color: purple;
+    }
+  }
   &__box {
     display: flex;
     justify-content: space-between;
@@ -360,7 +400,13 @@
   &__title {
     margin-bottom: 2rem;
     font-weight: 500;
+    @media only screen and (max-width: $bp-small) {
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      font-size: 1.3rem;
+    }
     @media only screen and (max-width: $bp-smallest) {
+      margin-bottom: 0.5rem;
       font-weight: 400;
       font-size: 1rem;
     }
@@ -377,6 +423,9 @@
     flex-wrap: wrap;
     flex-direction: column;
     width: 30%;
+    @media only screen and (max-width: $bp-small) {
+      width: 77%;
+    }
   }
   &__sizeBox {
     padding: 0.5rem 1rem;
@@ -384,7 +433,7 @@
     border: 1px solid black;
     margin-right: 0.5rem;
     cursor: pointer;
-    &:hover{
+    &:hover {
       color: darkcyan;
       border: 1px solid darkcyan;
     }
@@ -400,10 +449,36 @@
   }
   &__img {
     width: 100%;
+    border: 4px black solid;
+   
+    &--box {
+      &__container {
+       
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+      }
+      width: 15%;
+      margin-left: 2rem;
+      
+      &--unselected{
+       border: 2px black solid;
+       width: 15%;
+       margin-left: 2rem;
+       cursor: pointer;
+&:hover{border: 2px rgb(30, 110, 185) solid;}
+      }
+      &--selected{
+        cursor: pointer;
+      border: 2px rgb(61, 136, 150) solid;
+      width: 15%;
+      margin-left: 2rem;
+      &:hover{border: 2px rgb(30, 110, 185) solid;}
+    }
+    }
   }
 
   &__left {
-    border: 4px black solid;
     flex: 1;
     margin: 2rem;
   }
@@ -416,10 +491,13 @@
     text-align: center;
     align-items: center;
     justify-content: space-around;
+    @media only screen and (max-width: $bp-small) {
+      height: 27rem;
+      flex: 0 0 45%;
+    }
   }
 
   &__color {
-
     &--title {
       margin-bottom: 1rem;
     }
@@ -436,7 +514,9 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
-      &:hover{border: 1.5px solid orange;}
+      &:hover {
+        border: 1.5px solid orange;
+      }
       cursor: pointer;
     }
 
@@ -448,7 +528,9 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
-      &:hover{border: 1.5px solid orange;}
+      &:hover {
+        border: 1.5px solid orange;
+      }
     }
     &--Gold {
       background-color: gold;
@@ -458,7 +540,9 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
     &--navy {
       background-color: navy;
@@ -467,7 +551,9 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
       cursor: pointer;
     }
     &--Lilac {
@@ -477,7 +563,9 @@
       margin-right: 0.5rem;
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
       cursor: pointer;
     }
 
@@ -489,7 +577,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
 
     &--Maroon {
@@ -500,7 +590,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
 
     &--Black-Heather {
@@ -511,7 +603,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
 
     &--white {
@@ -522,7 +616,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
     &--Military-Green {
       background-color: #6b6952;
@@ -532,7 +628,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
 
     &--crop {
@@ -543,7 +641,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
 
     &--babyBlue {
@@ -554,7 +654,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
 
     &--babyPink {
@@ -565,7 +667,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
 
     &--heatherGray {
@@ -576,7 +680,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
     &--jetBlack {
       background-color: rgb(0, 0, 0);
@@ -586,7 +692,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
     &--royalBlue {
       background-color: royalblue;
@@ -596,7 +704,9 @@
       border-top: 0.5px solid black;
       border-bottom: 0.5px solid black;
       cursor: pointer;
-      &:hover{border: 1px solid orange;}
+      &:hover {
+        border: 1px solid orange;
+      }
     }
   }
 }
@@ -657,6 +767,13 @@
   &__content {
     font-size: 1.5rem;
     font-weight: 400;
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 1rem;
+      background-color: red;
+    }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1rem;
+    }
   }
   &__image {
   }
@@ -791,6 +908,12 @@
   align-items: center;
   justify-content: space-between;
   margin: 0rem;
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column-reverse;
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    flex-direction: column-reverse;
+  }
 }
 
 .total {
@@ -891,6 +1014,5 @@
 }
 
 .shirtColor {
-
   border: 1.5px solid rgb(19, 137, 158);
 }

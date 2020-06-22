@@ -10,7 +10,7 @@ const Products = (props) => {
   const [products, setProducts] = useState([]);
   const [shirtColor, setShirtColor] = useState("Black");
   const [shirtSize, setShirtSize] = useState("S");
-
+  const [selectImg, setSelectImg,] = useState(1);
 
   const fetchProducts = async () => {
   //  const res = await  API()
@@ -327,11 +327,43 @@ useEffect(()=>{updateCart(props.cart)})
                 className="product__img"
                 src={
                   info.files.map((img, i) => img)[
+                    info.files.map((img, i) => img).length - selectImg
+                  ].preview_url
+                }
+              />
+
+
+
+               <div  className=" product__img--box__container">
+               <img onClick={() =>setSelectImg(1)}
+                className={`${selectImg === 1 ? "product__img--box--selected" :  "product__img--box--unselected"} `}
+                src={
+                  info.files.map((img, i) => img)[
                     info.files.map((img, i) => img).length - 1
                   ].preview_url
                 }
               />
+               <img onClick={ () =>setSelectImg(2)}
+                className={`${selectImg === 2 ? "product__img--box--selected" :  "product__img--box--unselected"} `}
+                src={
+                  info.files.map((img, i) => img)[
+                    info.files.map((img, i) => img).length - 2
+                  ].preview_url
+                }
+              />
+     {     info.files.length > 2 &&    <img onClick={() =>setSelectImg(3)}
+                className={`${selectImg === 3 ? "product__img--box--selected" :  "product__img--box--unselected"} `}
+                src={
+                  info.files.map((img, i) => img)[
+                    info.files.map((img, i) => img).length - 3
+                  ].preview_url
+                }
+              />}
+
+               </div>
             </div>
+
+           
           </div>
         ))}
     </div>

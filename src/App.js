@@ -32,6 +32,7 @@ const [itemRecipient, setItemRecipient] = useState([]);
 
 
 
+useEffect(() =>{ oldCart ? setCart(oldCart) : setCart([]) }, []);
 
   const addToCart = (id,cart,setCart) => {
     if(  JSON.parse(localStorage.getItem('shoppingCart')) || JSON.parse(localStorage.getItem('shoppingCart')).length >  cart.length  ){
