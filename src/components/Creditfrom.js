@@ -102,7 +102,7 @@ try {
     console.log(amount,"id")
   createOrder(finalOrderee)
   const {data} = await axios.post(process.env.REACT_APP_charge,{id:id, amount:amount})
- console.log(data,"here")
+ console.log(data,"heremm")
 props.success()
 if(data){localStorage.removeItem("checkCart")
 localStorage.removeItem("shoppingCart")

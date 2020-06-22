@@ -66,7 +66,7 @@ if(status === "success"){
   return <div>congrats on your order</div>
 }
 
-console.log( Math.round( Number(fullTax) + Number(fullshipping) + Number(totalPrice())) ,"o")
+
   return !finalOrder || !finalPrice() || finalPrice() === 0 ? (
     <h1>
       {/* Please go back to the previous page and enter your shipping information{" "}
