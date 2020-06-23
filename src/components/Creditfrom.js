@@ -60,7 +60,7 @@ const res =await  Codes()
 
 
 const [status ,setStatus] = useState()
-
+const [charge ,setCharge] = useState(false)
   const stripe = useStripe();
   const elements = useElements();
 
@@ -71,7 +71,7 @@ const [status ,setStatus] = useState()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     const cardElement = elements.getElement(CardElement);
     let final= JSON.parse(localStorage.getItem("finalOrder"));
    
@@ -103,25 +103,28 @@ try {
   createOrder(finalOrderee)
   const {data} = await axios.post(process.env.REACT_APP_charge,{id:id, amount:amount})
  console.log(data,"heremm")
+ 
 props.success()
 if(data){localStorage.removeItem("checkCart")
+setCharge(true)
 localStorage.removeItem("shoppingCart")
 localStorage.removeItem("finalOrder")
-props.setCharge(true)
+
 localStorage.clear()}
  
 } catch (error) {
   console.log(error.message,"error")
   return setStatus(error.message)
 }
-
+setCharge(true)
 
     }
+    
   };
   let finalOrder = JSON.parse(localStorage.getItem("finalOrder"));
-
+console.log(props.charge,"jjjjjj")
   return ( 
-    <form className="form-credit" onSubmit={!props.charge ? handleSubmit : null}><h1 className="finalCheck__header--sub">Enter Credit Card</h1>
+    <form className="form-credit" onSubmit={ handleSubmit }><h1 className="finalCheck__header--sub">Enter Credit Card</h1>
     <div className="form-credit__buyer">
     <div className="form-credit__input-container">
     
@@ -156,9 +159,9 @@ localStorage.clear()}
         </div>
       <CardElement style={{width:"50%", margin:"2rem",display:"block",background:"white"}}  options={CARD_OPTIONS} />
       {/* <Cards style={{width:"50%"}}  options={CARD_OPTIONS}/> */}
-      <button onClick={ props.setCharge(true)}  className="btn" type="submit" >
+     {<button  onClick={ ()=>setCharge(true)}  className="btn" type="submit" >
         Confirm order
-      </button>
+      </button>  }
       {status}
     </form>
   );
