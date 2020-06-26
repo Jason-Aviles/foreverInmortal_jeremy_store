@@ -11,6 +11,14 @@ const Products = (props) => {
   const [shirtColor, setShirtColor] = useState("Black");
   const [shirtSize, setShirtSize] = useState("S");
   const [selectImg, setSelectImg,] = useState(1);
+  const [notify, setNotify] = useState(false);
+
+const setNote= ()=>{
+  if(!notify){
+    setNotify(true)
+    setTimeout(function(){ setNotify(false) }, 3000);
+  }
+}
 
   const fetchProducts = async () => {
   //  const res = await  API()
@@ -64,6 +72,7 @@ useEffect(()=>{updateCart(props.cart)})
   //  localStorageProduct.length < cart && setCart(localStorageProduct)
 
   const addToCart = (id,cart,setCart) => {
+    setNote()
     if(  JSON.parse(localStorage.getItem('shoppingCart')) || JSON.parse(localStorage.getItem('shoppingCart')).length >  cart.length  ){
 
       setCart(oldCart)
@@ -109,13 +118,14 @@ useEffect(()=>{updateCart(props.cart)})
       return "";
     }
   };
-  
+  console.log(notify,"jjj")
 
 
   return !JSON.parse(localStorage.getItem('shoppingCart')) ?  (
     <h1>no items in the shopping cart</h1>
   ) : !products ? (<h1>Loading....</h1>) :(
     <div style={{ display: "block" }} className="product">
+    {notify ? <h1 className="notify">added to cart</h1> : <span></span>}
       {products
         .filter(
           (items) =>

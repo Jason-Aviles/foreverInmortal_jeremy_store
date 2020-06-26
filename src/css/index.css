@@ -462,7 +462,10 @@ body {
 
 .product__img {
   width: 100%;
-  border: 4px black solid; }
+  border: 4px black solid;
+  -webkit-box-shadow: 6px 3px 5px 0px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 6px 3px 5px 0px rgba(0, 0, 0, 0.13);
+  box-shadow: 6px 3px 5px 0px rgba(0, 0, 0, 0.13); }
   .product__img--box {
     width: 15%;
     margin-left: 2rem; }
@@ -484,7 +487,10 @@ body {
       cursor: pointer;
       border: 2px #3d8896 solid;
       width: 15%;
-      margin-left: 2rem; }
+      margin-left: 2rem;
+      -webkit-box-shadow: 6px 3px 5px 0px rgba(0, 0, 0, 0.13);
+      -moz-box-shadow: 6px 3px 5px 0px rgba(0, 0, 0, 0.13);
+      box-shadow: 6px 3px 5px 0px rgba(0, 0, 0, 0.13); }
       .product__img--box--selected:hover {
         border: 2px #1e6eb9 solid; }
 
@@ -921,7 +927,24 @@ body {
 .shirtSize {
   color: darkgreen;
   border: 1.5px solid darkgreen;
-  font-weight: 600; }
+  font-weight: 600;
+  -webkit-box-shadow: -4px 3px 5px 0px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: -4px 3px 5px 0px rgba(0, 0, 0, 0.13);
+  box-shadow: -4px 3px 5px 0px rgba(0, 0, 0, 0.13); }
 
 .shirtColor {
-  border: 1.5px solid #13899e; }
+  border: 1.5px solid #13899e;
+  -webkit-box-shadow: -4px 3px 5px 0px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: -4px 3px 5px 0px rgba(0, 0, 0, 0.13);
+  box-shadow: -4px 3px 5px 0px rgba(0, 0, 0, 0.13); }
+
+.notify {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
+  margin: 0 2rem;
+  font-weight: 300;
+  background-color: #18be18;
+  text-transform: uppercase;
+  width: 20%;
+  text-align: center; }
