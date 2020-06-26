@@ -85,14 +85,14 @@ const Kids = (props) => {
       <div className="product-list">
         {Kidss().map((item, i) => (
           <Link to={`/Kids/${item.id}`} key={i} className="product-list__box">
-            
+          <div className="product-list__click"><h1 >Click for Price</h1></div>
             <img
               src={item.thumbnail_url}
               alt="bb"
               className="product-list__img"
             />
             <span className="product-list__title">{item.name}</span>
-            <span className="product-list__price">30$</span>
+            {/* <span className="product-list__price">30$</span> */}
           </Link>
         ))}
       </div>

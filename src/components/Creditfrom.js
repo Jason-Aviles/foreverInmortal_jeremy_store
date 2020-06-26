@@ -45,13 +45,14 @@ useEffect(()=>{return setAmount( props.finalPrice() && (props.finalPrice() * 100
 
 
   const createOrder = async (product) => {
-
+if(charge === 200) return;
 
         try {
 const res =await  Codes()
         .post("/orders", product)
         
          console.log(res) 
+         setCharge(res.status)
         } catch (error) {
           console.log(error)
         }
@@ -71,6 +72,13 @@ const [charge ,setCharge] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    e.target.setAttribute("disabled", true);
+    document.getElementById("btn").textContent = "Loading..."
+    if (!stripe || !elements || charge === 200) {
+      // Stripe.js has not loaded yet. Make sure to disable
+      // form submission until Stripe.js has loaded.
+      return;
+    }
     
     const cardElement = elements.getElement(CardElement);
     let final= JSON.parse(localStorage.getItem("finalOrder"));
@@ -98,31 +106,32 @@ const [charge ,setCharge] = useState(false)
      const {id} = paymentMethod
    
 try {
-    console.log(id,"id")
-    console.log(amount,"id")
+   
   createOrder(finalOrderee)
   const {data} = await axios.post(process.env.REACT_APP_charge,{id:id, amount:amount})
  console.log(data,"heremm")
  
 props.success()
 if(data){localStorage.removeItem("checkCart")
-setCharge(true)
+
+localStorage.clear()
 localStorage.removeItem("shoppingCart")
 localStorage.removeItem("finalOrder")
-
+props.setCart([])
 localStorage.clear()}
- 
+
 } catch (error) {
   console.log(error.message,"error")
   return setStatus(error.message)
 }
-setCharge(true)
+
 
     }
     
   };
   let finalOrder = JSON.parse(localStorage.getItem("finalOrder"));
 console.log(props.charge,"jjjjjj")
+
   return ( 
     <form className="form-credit" onSubmit={ handleSubmit }><h1 className="finalCheck__header--sub">Enter Credit Card</h1>
     <div className="form-credit__buyer">
@@ -159,7 +168,7 @@ console.log(props.charge,"jjjjjj")
         </div>
       <CardElement style={{width:"50%", margin:"2rem",display:"block",background:"white"}}  options={CARD_OPTIONS} />
       {/* <Cards style={{width:"50%"}}  options={CARD_OPTIONS}/> */}
-     {<button  onClick={ ()=>setCharge(true)}  className="btn" type="submit" >
+     {<button id="btn"  className="btn" type="submit" disabled={!stripe } >
         Confirm order
       </button>  }
       {status}

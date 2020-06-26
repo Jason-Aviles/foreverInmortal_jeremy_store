@@ -322,7 +322,7 @@
 
 .product-list {
   flex: 1;
-  height: auto;
+  height: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -343,27 +343,35 @@
     color: white;
     width: 32%;
     text-transform: uppercase;
-    height: 29.6rem;
+    height: 24rem;
     transition: all 0.5s ease-in;
     &:hover {
       opacity: 1;
     }
     @media only screen and (max-width: $bp-large) {
-      height: 13%;
-      background-color: rgb(113, 0, 128);
+      height:24rem;
+  
     }
     @media only screen and (max-width: $bp-small) {
-      height: auto;
-      background-color: green;
+      height: 15rem;
+     
+      width: 15rem;
+    }
+    @media only screen and (max-width: 25em) {
+      height: 15rem;
+      width: 15rem;
+  
     }
     @media only screen and (max-width: $bp-smallest) {
-      height: 55%;
-      background-color: blue;
+      height: 15rem;
+      width: 15rem;
+      
     }
 
     @media only screen and (max-width: $bp-tinniest) {
-      height: 55%;
-      background-color: purple;
+      height: 15rem;
+      width: 15rem;
+  ;
     }
   }
   &__box {
@@ -380,7 +388,26 @@
   }
   &__img {
     width: 100%;
+    height:24rem;
     border: 3px solid black;
+    @media only screen and (max-width: $bp-large) {
+      height:24rem;
+   
+    }
+    @media only screen and (max-width: $bp-small) {
+      height: 15rem;
+      width: 15rem;
+    }
+  
+    @media only screen and (max-width: $bp-smallest) {
+      height: 15rem;
+      width: 15rem;
+    }
+
+    @media only screen and (max-width: $bp-tinniest) {
+      height: 15rem;
+      width: 15rem;
+    }
   }
   &__price {
     font-weight: 600;

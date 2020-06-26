@@ -214,7 +214,7 @@ useEffect(() =>{ oldCart ? setCart(oldCart) : setCart([]) }, []);
 <Route
         exact
         path="/finalcheckOut"
-        render={(props) => <Finalcheck {...props} cart={cart} itemRecipient={itemRecipient}  />}
+        render={(props) => <Finalcheck {...props} setCart={setCart} cart={cart} itemRecipient={itemRecipient}  />}
       />
 
     </div>

@@ -99,6 +99,8 @@ class recipient extends Component {
   render() {
     console.log(this.state.country.length,"olo")
     let checkCart = JSON.parse(localStorage.getItem("checkCart"));
+
+    if(!this.state.country.length) {return <h1>refresh page</h1>}
     return !this.state.country  ? (
       <h1>Loading.......</h1>
     ) :  !this.props.cart || !checkCart ? (

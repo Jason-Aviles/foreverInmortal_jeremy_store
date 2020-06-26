@@ -5,7 +5,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import Creditform from "./Creditfrom";
 import { Elements } from "@stripe/react-stripe-js";
 require("dotenv").config();
-const Finalcheck = () => {
+const Finalcheck = (props) => {
   const stripePromise = loadStripe(
     process.env.REACT_APP_stripeKey
   );
@@ -42,7 +42,9 @@ setShipping(res.data.result)
   useEffect(() => {fetchTaxes(finalOrder)}, []);
 
   const totalPrice = () => {
-    if(!finalOrder.items)return null;
+    if(!finalOrder)return ;
+    if(!finalOrder.items)return ;
+    if(finalOrder.items === null)return ;
     let i = 0;
     let price = 0;
     while (i < finalOrder.items.length ) {
@@ -66,8 +68,10 @@ if(status === "success"){
   return <div>congrats on your order</div>
 }
 
-
-  return !finalOrder || !finalPrice() || finalPrice() === 0 ? (
+if(!finalOrder){
+  return <div>congrats on your order</div>
+}
+  return !finalOrder || !finalOrder.items || !finalPrice() || finalPrice() === 0 ? (
     <h1>
       {/* Please go back to the previous page and enter your shipping information{" "}
       <Link to="/recipient">Click here</Link> */}
@@ -140,6 +144,7 @@ if(status === "success"){
               <Creditform
                 finalPrice={finalPrice}
                 charge={charge}
+                setCart={props.setCart}
                 setCharge={setCharge}
                 success={()=> setStatus("success")}
               />
