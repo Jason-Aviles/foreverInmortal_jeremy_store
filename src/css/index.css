@@ -95,9 +95,11 @@ body {
       border-bottom: 5px solid #ee4444; }
 
 .search-bar {
+  
   width: 20%;
   flex: 1; }
   .search-bar__input {
+    display: none;
     border-radius: 1rem;
     width: 100%;
     padding: 0.5rem;
