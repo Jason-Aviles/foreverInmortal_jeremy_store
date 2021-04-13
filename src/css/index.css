@@ -95,11 +95,9 @@ body {
       border-bottom: 5px solid #ee4444; }
 
 .search-bar {
-  
   width: 20%;
   flex: 1; }
   .search-bar__input {
-    display: none;
     border-radius: 1rem;
     width: 100%;
     padding: 0.5rem;
@@ -754,10 +752,14 @@ body {
   flex-direction: column;
   height: 40rem;
   background-color: rgba(87, 87, 104, 0); }
+  @media only screen and (max-width: 48em) {
+    .form {
+      flex: none; } }
   .form__input {
     border: none;
     padding: 1rem;
-    flex: 1; }
+    flex: 1;
+    width: 27rem; }
     .form__input:focus {
       outline: none;
       border-bottom: 1px solid #86e4a5; }
@@ -779,10 +781,12 @@ body {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  margin: auto 2rem; }
+  margin: auto 7rem; }
+  @media only screen and (max-width: 48em) {
+    .recipient {
+      flex-direction: column-reverse; } }
   .recipient__img {
     border-radius: 7rem;
-    background: #e5919194;
     padding: 4rem; }
   .recipient__content {
     flex: 0 0 55%;

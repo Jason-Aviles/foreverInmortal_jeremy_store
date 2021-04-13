@@ -830,11 +830,14 @@ box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.13);
   flex-direction: column;
   height: 40rem;
   background-color: rgba(87, 87, 104, 0);
-
+  @media only screen and (max-width: $bp-small) {
+    flex:none;
+  }
   &__input {
     border: none;
     padding: 1rem;
     flex: 1;
+    width: 27rem;
     &:focus {
       outline: none;
       border-bottom: 1px solid rgb(134, 228, 165);
@@ -862,10 +865,13 @@ box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.13);
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  margin: auto 2rem;
+  margin: auto 7rem;
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column-reverse;
+  }
   &__img {
     border-radius: 7rem;
-    background: #e5919194;
+   
     padding: 4rem;
   }
   &__content {
