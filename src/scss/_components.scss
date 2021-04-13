@@ -51,9 +51,11 @@
 }
 
 .search-bar {
+  
   width: 20%;
   flex: 1;
   &__input {
+    display: none;
     border-radius: 1rem;
     width: 100%;
     padding: 0.5rem;
